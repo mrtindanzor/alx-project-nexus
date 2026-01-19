@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "biome check",
-    "format": "biome format --write"
+    "lint": "biome check && tsc --noEmit",
+    "format": "biome check --write && tsc --noEmit"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
