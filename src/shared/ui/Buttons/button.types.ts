@@ -1,7 +1,7 @@
 import type { ExtractVariantsTypes } from "lpm/library/ExtractVariants";
-import type { ButtonVariants } from "lpm/ui/Buttons/Button";
 import type { LinkProps } from "next/link";
 import type { ComponentProps } from "react";
+import type { ButtonVariants } from "./Button";
 
 export type ButtonVariantTypes = ExtractVariantsTypes<typeof ButtonVariants>;
 export type ButtonProps = ComponentProps<"button"> & ButtonVariantTypes;

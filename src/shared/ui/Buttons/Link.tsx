@@ -1,14 +1,18 @@
-import type { StyledLinkProps } from "lpm/types/ui/button";
 import Link from "next/link";
 import { ButtonVariants } from "./Button";
+import type { StyledLinkProps } from "./button.types";
 
-export default function StyledLink({
+export function StyledLink({
   variant,
-  outline,
   className,
   hover,
   hoverEffect,
   effectTiming,
+  pad,
+  rad,
+  x,
+  y,
+  w,
   ...props
 }: StyledLinkProps) {
   return (
@@ -16,11 +20,15 @@ export default function StyledLink({
       {...props}
       className={ButtonVariants({
         variant,
-        outline,
         className,
         hover,
         hoverEffect,
         effectTiming,
+        pad,
+        rad,
+        x,
+        y,
+        w,
       })}
     />
   );

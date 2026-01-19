@@ -1,13 +1,13 @@
 import { cva } from "class-variance-authority";
-import type { ButtonProps } from "lpm/types/ui/button";
 import { cn } from "lpm/utils/cn";
+import type { ButtonProps } from "./button.types";
 
 export const ButtonVariants = cva(
   "relative link flex w-fit hover-effect rounded-md transition duration-300 ease-in-out",
   {
     variants: {
       variant: {
-        sky: "bg-accent-secondary text-neutral",
+        sky: "bg-accent text-neutral",
         dark: "bg-muted text-neutral border",
         light: "bg-neutral text-muted",
         success: "bg-success text-muted",
@@ -97,7 +97,7 @@ export const ButtonVariants = cva(
   },
 );
 
-export default function Button({
+export function Button({
   className,
   variant,
   pad,
