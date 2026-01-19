@@ -1,5 +1,5 @@
 import type { ComponentProps } from "react";
 
 export type CardWrapperProps = {
-  title: String;
+  title: string;
 } & ComponentProps<"div">;
