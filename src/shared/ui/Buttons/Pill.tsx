@@ -1,8 +1,8 @@
-import type { PillProps } from "lpm/types/ui/button";
 import { cn } from "lpm/utils/cn";
 import { ButtonVariants } from "./Button";
+import type { PillProps } from "./button.types";
 
-export default function Pill({
+export function Pill({
   className,
   variant,
   pad,

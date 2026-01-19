@@ -2,14 +2,11 @@
 
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import useBackButton from "lpm/hooks/useBackButton";
-import type {
-  ArrowBackButtonProps,
-  BackButtonProps,
-} from "lpm/types/ui/button";
 import { cn } from "lpm/utils/cn";
-import Button from "./Button";
+import { Button } from "./Button";
+import type { ArrowBackButtonProps, BackButtonProps } from "./button.types";
 
-export default function BackButton({
+export function BackButton({
   backUrl,
   onClick,
   hoverEffect = "from-left",
@@ -21,7 +18,7 @@ export default function BackButton({
     <Button
       {...props}
       hoverEffect={hoverEffect}
-      onClick={(e: Event) => {
+      onClick={(e) => {
         goBack(backUrl);
         onClick?.(e);
       }}
@@ -32,7 +29,7 @@ export default function BackButton({
 export function ArrowBackButton({
   wrapperClassName,
   iconClassName,
-  hover = "bright",
+  hover = "light",
   ...props
 }: ArrowBackButtonProps) {
   return (

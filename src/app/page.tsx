@@ -1,3 +1,5 @@
+import { JobsPage } from "@/features/jobs";
+
 export default function Home() {
-  return <div className=""></div>;
+  return <JobsPage />;
 }
