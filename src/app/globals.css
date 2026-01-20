@@ -12,6 +12,18 @@
 }
 
 @layer base {
+  * ::-webkit-scrollbar {
+    @apply w-1;
+  }
+
+  * ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  * ::-webkit-scrollbar-thumb {
+    @apply bg-neutral rounded-2xl;
+  }
+
   body {
     @apply bg-muted-light;
   }
