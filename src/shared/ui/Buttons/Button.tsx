@@ -8,6 +8,7 @@ export const ButtonVariants = cva(
     variants: {
       variant: {
         sky: "bg-accent text-neutral",
+        "ghost-sky": "bg-accent/10 text-accent border border-accent/50",
         dark: "bg-muted text-neutral border",
         light: "bg-neutral text-muted",
         success: "bg-success text-muted",
@@ -23,7 +24,9 @@ export const ButtonVariants = cva(
         none: "",
       },
       hover: {
-        sky: "hover:bg-accent-secondary hover:text-muted",
+        sky: "hover:bg-accent hover:text-neutral hover:outline-accent",
+        "ghost-sky":
+          "hover:bg-accent/10 hover:text-accent hover:border hover:border-accent/50",
         dark: "hover:bg-muted hover:text-neutral",
         light: "hover:bg-neutral hover:hover:text-muted",
         success: "hover:hover:bg-success hover:hover:text-muted",

@@ -4,3 +4,6 @@ import type { inputVariants } from "./Input";
 
 export type InputProps = ExtractVariantsTypes<typeof inputVariants> &
   ComponentProps<"input">;
+
+export type TextAreaProps = ExtractVariantsTypes<typeof inputVariants> &
+  ComponentProps<"textarea">;
