@@ -1,6 +1,6 @@
 import type { ComponentProps } from "react";
-import type { ExtractVariantsTypes } from "@/shared/library/ExtractVariants";
-import type { inputVariants } from "./Input";
+import type { ExtractVariantsTypes } from "@/shared/types/lib/ExtractVariants";
+import type { inputVariants } from "./components/Input";
 
 export type InputProps = ExtractVariantsTypes<typeof inputVariants> &
   ComponentProps<"input">;

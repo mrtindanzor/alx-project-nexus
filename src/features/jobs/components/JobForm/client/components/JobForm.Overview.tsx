@@ -2,7 +2,7 @@
 
 import { useId } from "react";
 import { JOB_TYPES } from "@/features/jobs/constants";
-import Dropdown from "@/shared/ui/Dropdown/Dropdown";
+import { Dropdown } from "@/shared/features/Dropdown";
 import { FormSectionWrapper } from "../../server";
 import { useJobFormCtx } from "../hooks/useJobForm";
 import { JobInput } from "./Input";
@@ -50,7 +50,7 @@ function JobType() {
         items={JOB_TYPES.map((type) => ({ title: type, value: type }))}
         setValue={(type) => setValue("type", type)}
         className="w-full *:last:w-full"
-        buttonProps={{ w: "full", pad: "lg", rad: "md" }}
+        buttonProps={{ w: "full", pad: "xl", rad: "md" }}
       />
     </div>
   );

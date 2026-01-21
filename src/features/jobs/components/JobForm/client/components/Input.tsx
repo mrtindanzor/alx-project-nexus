@@ -18,11 +18,16 @@ export function JobInput<T extends PostJobPaths>({
   const id = useId();
 
   return (
-    <div className={cn("grid h-fit gap-y-2 *:last:rounded-mds", className)}>
+    <div className={cn("grid h-fit gap-y-2 *:last:rounded-md", className)}>
       <span id={id} className="font-bold">
         {label}
       </span>
-      <Input aria-labelledby={id} {...props} {...action(name)} />
+      <Input
+        aria-labelledby={id}
+        {...props}
+        className="py-2.5! w-full"
+        {...action(name)}
+      />
     </div>
   );
 }
@@ -41,7 +46,12 @@ export function JobTextArea<T extends PostJobPaths>({
       <span id={id} className="font-bold">
         {label}
       </span>
-      <Textarea aria-labelledby={id} {...props} {...register(name)} />
+      <Textarea
+        aria-labelledby={id}
+        {...props}
+        className="py-2.5!"
+        {...register(name)}
+      />
     </div>
   );
 }

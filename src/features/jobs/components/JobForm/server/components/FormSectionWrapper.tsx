@@ -9,7 +9,10 @@ export function FormSectionWrapper({
   ...props
 }: FormSectionWrapperProps) {
   return (
-    <section {...props} className={cn("grid h-fit gap-y-4", className)}>
+    <section
+      {...props}
+      className={cn("@container grid h-fit gap-y-4", className)}
+    >
       <div className="pb-4 border-b border-b-neutral/10 col-span-full">
         <h2 className="text-2xl font-bold">{title}</h2>
         <p className="text-neutral/60">{description}</p>

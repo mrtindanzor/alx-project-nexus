@@ -44,24 +44,36 @@ export function useJobForm() {
     [],
   );
 
+  const trimSetSkill = useCallback(() => {
+    if (!skill) return;
+
+    setSkill("");
+    if (job.skills.includes(skill)) return;
+
+    setValue(
+      "skills",
+      [...job.skills, ...skill.trim().split(",")].filter(
+        (skill, index, self) => self.indexOf(skill) !== index,
+      ),
+    );
+  }, [setValue, job.skills, skill]);
+
   const registerSkill = useCallback(() => {
     return {
       onChange(e: ChangeEvent<HTMLInputElement>) {
         setSkill(e.target.value);
       },
       onKeyDown(e: KeyboardEvent) {
-        if (e.key !== "Enter") return;
-
-        setSkill("");
-        if (job.skills.includes(skill)) return;
-
-        setValue("skills", [...job.skills, ...skill.trim().split(",")]);
+        if (e.key === "Enter") trimSetSkill();
+      },
+      onBlur() {
+        trimSetSkill();
       },
       value: skill,
       name: "skill",
       autoComplete: "true",
     };
-  }, [setValue, job.skills, skill]);
+  }, [trimSetSkill, skill]);
 
   const removeSkill = useCallback(
     (index: number) => {
