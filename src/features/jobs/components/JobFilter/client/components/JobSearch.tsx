@@ -6,9 +6,9 @@ import { SortBy } from "./SortBy";
 
 export function JobSearch() {
   return (
-    <div className="@container grid gap-y-4 col-span-full">
-      <h1 className="text-xl text-neutral/80">
-        Find your next role at a top-tier tech company.
+    <div className="@container grid gap-y-2 col-span-full">
+      <h1 className="text-xl font-sans font-bold tracking-tight">
+        Find your next role at a top-tier company.
       </h1>
       <SortBy />
       <SearchBox />
@@ -23,7 +23,7 @@ function SearchBox() {
   return (
     <form
       onSubmit={handleSearchSubmit}
-      className="flex bg-primary rounded-xl px-2 py-1.5 items-center"
+      className="flex border-2 border-muted-2 rounded-xl bg-neutral pl-3 pr-1 py-1 items-center"
     >
       <Search className="size-6 @sm:block" />
 
@@ -33,9 +33,10 @@ function SearchBox() {
         className="border-0 flex-1 w-full max-w-full outline-none focus:outline-none"
         defaultValue={search}
         name="search"
+        variant="none"
       />
 
-      <Button variant="sky" rad="xl" pad="xl" className="flex-0">
+      <Button variant="sky" hover="dark" rad="xl" pad="xl" className="flex-0">
         Search
       </Button>
     </form>

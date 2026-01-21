@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowUp, BadgeDollarSign, Clock, MapPin } from "lucide-react";
-import { StyledLink } from "@/shared/ui/Buttons";
+import { Pill, StyledLink } from "@/shared/ui/Buttons";
 import { cn } from "@/shared/utils/cn";
 import type { JobCardProps } from "../../jobcard.types";
 import { useJobCard } from "../hooks/useJobCard";
@@ -13,15 +13,16 @@ export function JobCard({ job, className, ...props }: JobCardProps) {
       <li
         {...props}
         className={cn(
-          "grid h-fit gap-x-4 py-8 gap-y-1 not-last:border-b not-last:border-b-accent/10",
+          "grid h-fit gap-x-4 py-6 px-8 rounded-xl gap-y-1 outline-2 outline-muted-2/70 bg-neutral",
           className,
         )}
       >
-        <PostedTime />
-        <CardLocation />
         <CardHeader />
         <Salary />
+        <CardLocation />
         <Description />
+        <Skills />
+        <PostedTime />
         <Apply />
       </li>
     </JobCardProvider>
@@ -42,7 +43,7 @@ function CardLocation() {
   const { location, type } = useJobCard();
 
   return (
-    <p className="text-neutral/70 flex items-center gap-x-1">
+    <p className=" flex items-center gap-x-1 text-primary/80">
       <MapPin className="size-4" /> {location}
       {location !== type && `, ${type}`}
     </p>
@@ -53,7 +54,7 @@ function Salary() {
   const { salary } = useJobCard();
 
   return (
-    <p className="flex gap-x-4 text-neutral/50 items-center">
+    <p className="flex gap-x-4  items-center text-primary/90">
       <BadgeDollarSign className="size-4" /> {salary}
     </p>
   );
@@ -63,7 +64,7 @@ function PostedTime() {
   const { postedTime } = useJobCard();
 
   return (
-    <p className="flex gap-x-1 text-neutral/50 items-center">
+    <p className="flex gap-x-1 mt-2  items-center text-primary/60">
       <Clock className="size-4" /> {postedTime}
     </p>
   );
@@ -72,7 +73,27 @@ function PostedTime() {
 function Description() {
   const { description } = useJobCard();
 
-  return <p className="line-clamp-3 my-4 text-neutral/80">{description}</p>;
+  return (
+    <p className="line-clamp-3 tracking-tight mt-2 text-primary/80">
+      {description}
+    </p>
+  );
+}
+
+function Skills() {
+  const { skills } = useJobCard();
+
+  return (
+    <ul className="grid grid-flow-col py-1 w-fit max-w-full auto-cols-auto overflow-x-auto gap-2">
+      {skills.map((skill) => (
+        <li key={skill}>
+          <Pill variant="ghost-sky" className="z-0" hover="none" rad="xl">
+            {skill}
+          </Pill>
+        </li>
+      ))}
+    </ul>
+  );
 }
 
 function Apply() {
@@ -85,7 +106,8 @@ function Apply() {
         rad="xl"
         y="center"
         variant="link"
-        hover="ghost-light"
+        hover="sky"
+        pad="md"
         className="text-accent ml-auto gap-x-2 tracking-wide"
       >
         View <ArrowUp className="rotate-45 size-4" />

@@ -3,47 +3,47 @@ import { cn } from "lpm/utils/cn";
 import type { ButtonProps } from "../button.types";
 
 export const ButtonVariants = cva(
-  "relative link flex w-fit hover-effect rounded-md transition duration-300 ease-in-out",
+  "relative link flex w-fit focus-within:outline-2 hover-effect rounded-md transition duration-300 ease-in-out",
   {
     variants: {
       variant: {
         sky: "bg-accent text-neutral",
-        "ghost-sky": "bg-accent/10 text-accent outline outline-accent/50",
-        dark: "bg-muted text-neutral border",
-        light: "bg-neutral text-muted",
-        success: "bg-success text-muted",
-        danger: "bg-danger text-muted",
+        dark: "bg-primary text-neutral border",
+        light: "bg-neutral text-primary",
+        white: "text-neutral",
+        success: "bg-success text-primary",
+        danger: "bg-danger text-primary",
         link: "underline underline-offset-4",
-        outline: "outline text-neutral",
-        "outline-dark": "outline text-muted",
-        "outline-sky": "outline outline-accent-secondary text-accent-secondary",
-        "outline-success": "outline outline-success text-success",
-        "outline-danger": "outline text-danger outline-danger",
-        "ghost-dark": "bg-neutral/10 backrop-blur-xl text-muted",
+        outline: "border text-neutral",
+        "outline-dark": "border-2 text-primary",
+        "outline-sky": "border border-accent text-accent",
+        "outline-success": "border border-success text-success",
+        "outline-danger": "border text-danger border-danger",
+        "ghost-dark": "bg-neutral/10 backrop-blur-xl text-primary",
         "ghost-light": "bg-neutral/10 backrop-blur-xl text-light",
+        "ghost-sky": "bg-accent/10 text-accent",
         none: "",
       },
       hover: {
-        sky: "hover:bg-accent hover:text-neutral hover:outline-accent",
-        "ghost-sky":
-          "hover:bg-accent/10 hover:text-accent hover:outline hover:outline-accent/50",
-        dark: "hover:bg-muted hover:text-neutral",
-        light: "hover:bg-neutral hover:hover:text-muted",
-        success: "hover:hover:bg-success hover:hover:text-muted",
-        danger: "hover:bg-danger hover:text-muted",
+        sky: "hover:bg-accent hover:text-neutral hover:border-accent",
+        "ghost-sky": "hover:bg-accent/10 hover:text-accent",
+        dark: "hover:bg-primary hover:text-neutral",
+        light: "hover:bg-neutral hover:hover:text-primary",
+        success: "hover:hover:bg-success hover:hover:text-primary",
+        danger: "hover:bg-danger hover:text-primary",
         link: "hover:underline hover:underline-offset-2",
-        outline: "hover:bg-transparent hover:outline hover:text-neutral",
-        "outline-dark": "hover:bg-transparent hover:outline hover:text-muted",
+        outline: "hover:bg-transparent hover:border hover:text-neutral",
+        "outline-dark": "hover:bg-transparent hover:border hover:text-primary",
         "outline-sky":
-          "hover:bg-transparent hover:hover:outline hover:hover:outline-accent-secondary hover:hover:text-accent-secondary",
+          "hover:bg-transparent hover:border hover:border-accent hover:text-accent",
         "outline-success":
-          "hover:bg-transparent outline outline-success text-success",
+          "hover:bg-transparent border border-success text-success",
         "outline-danger":
-          "hover:bg-transparent hover:outline hover:text-danger hover:outline-danger",
+          "hover:bg-transparent hover:border hover:text-danger hover:border-danger",
         "ghost-dark":
-          "hover:bg-neutral/10 hover:backrop-blur-xl hover:text-muted",
+          "hover:bg-neutral/10 hover:backrop-blur-xl hover:text-primary",
         "ghost-light":
-          "hover:bg-neutral/10 hover:outline-none hover:backrop-blur-xl hover:text-neutral",
+          "hover:bg-neutral/10 hover:border-none hover:backrop-blur-xl hover:text-neutral",
         none: "",
       },
       rad: {

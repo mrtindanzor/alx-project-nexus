@@ -13,7 +13,7 @@ export function FilterProvider({ children }: PropsWithChildren) {
 
   return (
     <FiltersContext.Provider value={filterProps}>
-      <div className="@container grid md:grid-cols-[auto_1fr] gap-y-8 gap-x-4 ">
+      <div className="@container grid md:grid-cols-[auto_1fr] gap-y-4 gap-x-10">
         <JobSearch />
         <JobFilter />
         <div className="md:row-start-2 md:col-start-2">{children}</div>

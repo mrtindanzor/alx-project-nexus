@@ -8,7 +8,7 @@ import { CardWrapper } from "./CardWrapper";
 
 export function JobType() {
   return (
-    <CardWrapper title="JOB TYPE">
+    <CardWrapper title="Job Type">
       <ul className="grid gap-y-2">
         {JOB_TYPES.map((job) => (
           <Card key={job} title={job} />
@@ -27,6 +27,7 @@ function Card({ title, ...props }: JobTypeCardProps) {
       <Button
         variant={selected ? "ghost-sky" : "none"}
         pad="md"
+        rad="lg"
         w="full"
         onClick={() => setFilter("jobType", title)}
       >

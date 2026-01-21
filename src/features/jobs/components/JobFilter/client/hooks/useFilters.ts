@@ -2,7 +2,7 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { type FormEvent, useCallback, useContext, useMemo } from "react";
-import type { FilterOptions } from "@/features/jobs/jobs.types";
+import type { FilterOptions } from "@/features/jobs/jobs.contract.types";
 import type { GetSelectedValue, SetFilterValue } from "../../filters.types";
 import { FiltersContext } from "../components/FilterProvider";
 

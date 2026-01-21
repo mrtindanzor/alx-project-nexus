@@ -3,22 +3,10 @@
 import { useId } from "react";
 import { JOB_TYPES } from "@/features/jobs/constants";
 import { Dropdown } from "@/shared/features/Dropdown";
+import { jobInputs } from "../../contants";
 import { FormSectionWrapper } from "../../server";
 import { useJobFormCtx } from "../hooks/useJobForm";
 import { JobInput } from "./Input";
-
-const inputs = [
-  {
-    name: "title",
-    label: "Job Title",
-    placeholder: "eg. Senior Full-stack Engineer",
-  },
-  {
-    name: "location",
-    label: "Location",
-    placeholder: "Remote, Greater Accra, Ahsanti",
-  },
-] as const;
 
 export function JobFormOverview() {
   return (
@@ -27,8 +15,8 @@ export function JobFormOverview() {
       description="Tell us about the role"
       className="sm:grid-cols-2 gap-x-4"
     >
-      <JobInput {...inputs[0]} className="col-span-full" />
-      <JobInput {...inputs[1]} />
+      <JobInput {...jobInputs[0]} className="col-span-full" />
+      <JobInput {...jobInputs[1]} />
       <JobType />
     </FormSectionWrapper>
   );
@@ -47,10 +35,21 @@ function JobType() {
       <Dropdown
         aria-labelledby={id}
         title={job.type}
-        items={JOB_TYPES.map((type) => ({ title: type, value: type }))}
+        items={JOB_TYPES.map((type) => ({
+          title: type,
+          value: type,
+          variant: "none",
+          hover: "dark",
+        }))}
         setValue={(type) => setValue("type", type)}
         className="w-full *:last:w-full"
-        buttonProps={{ w: "full", pad: "xl", rad: "md" }}
+        dropDownListClassName="bg-neutral border-muted-2 border"
+        buttonProps={{
+          variant: "outline-dark",
+          w: "full",
+          pad: "xl",
+          rad: "md",
+        }}
       />
     </div>
   );
