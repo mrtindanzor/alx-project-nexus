@@ -25,10 +25,11 @@ function Card({ title, ...props }: JobTypeCardProps) {
   return (
     <li {...props}>
       <Button
-        variant={selected ? "ghost-sky" : "none"}
+        variant={selected ? "ghost-sky" : "white"}
         pad="md"
         rad="lg"
         w="full"
+        className="md:text-primary"
         onClick={() => setFilter("jobType", title)}
       >
         {title}

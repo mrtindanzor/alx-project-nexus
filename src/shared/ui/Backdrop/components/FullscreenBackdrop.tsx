@@ -27,7 +27,7 @@ export function FullscreenBackdrop({
         onClick={close}
         title="Click to close modal"
         className={cn(
-          "absolute bg-muted/50 z-0  cursor-pointer inset-0",
+          "absolute bg-primary/50 z-0  cursor-pointer inset-0",
           backdropClassName,
         )}
       />

@@ -60,7 +60,7 @@ export function Modal({
             {...props}
             autoNone
             className={cn(
-              "bg-muted grid grid-rows-[auto_1fr_auto] space-y-4 outline sm:outline outline-accent h-[90vh] max-h-[90vh] max-w-7xl rounded-t-2xl w-full absolute px-2 sm:px-4 md:px-6 pb-2 overflow-hidden",
+              "bg-primary grid grid-rows-[auto_1fr_auto] space-y-4 outline sm:outline outline-muted h-[90vh] max-h-[90vh] max-w-7xl rounded-t-2xl w-full absolute px-2 sm:px-4 md:px-6 pb-2 overflow-hidden",
               variant === "thumb" && "pt-8",
               modalPosition(direction, variant === "thumb"),
               className,
