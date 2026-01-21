@@ -1,6 +1,6 @@
 "use client";
 
-import { BadgeDollarSign, Clock, MapPin } from "lucide-react";
+import { ArrowUp, BadgeDollarSign, Clock, MapPin } from "lucide-react";
 import { StyledLink } from "@/shared/ui/Buttons";
 import { cn } from "@/shared/utils/cn";
 import type { JobCardProps } from "../../jobcard.types";
@@ -13,13 +13,14 @@ export function JobCard({ job, className, ...props }: JobCardProps) {
       <li
         {...props}
         className={cn(
-          "grid h-fit gap-y-2 gap-x-4 @md:grid-cols-[1fr_auto] py-8 px-6 rounded-xl bg-primary *:not-last:col-start-1",
+          "grid h-fit gap-x-4 py-8 gap-y-1 not-last:border-b not-last:border-b-accent/10",
           className,
         )}
       >
-        <CardHeader />
+        <PostedTime />
         <CardLocation />
-        <SalaryAndTime />
+        <CardHeader />
+        <Salary />
         <Description />
         <Apply />
       </li>
@@ -31,7 +32,7 @@ function CardHeader() {
   const { title } = useJobCard();
 
   return (
-    <h3 className="text-[clamp(1.3rem,calc(0.1rem+4vw),1.8rem)] text-neutral">
+    <h3 className="text-[clamp(1.3rem,calc(0.1rem+3vw),1.8rem)] text-accent font-semibold">
       {title}
     </h3>
   );
@@ -41,24 +42,29 @@ function CardLocation() {
   const { location, type } = useJobCard();
 
   return (
-    <p className="text-neutral/70 text-lg flex items-center gap-x-1">
+    <p className="text-neutral/70 flex items-center gap-x-1">
       <MapPin className="size-4" /> {location}
       {location !== type && `, ${type}`}
     </p>
   );
 }
 
-function SalaryAndTime() {
-  const { salary, postedTime } = useJobCard();
+function Salary() {
+  const { salary } = useJobCard();
 
   return (
-    <p className="flex gap-x-4 text-neutral/50 mb-4">
-      <span className="flex gap-x-2 items-center">
-        <BadgeDollarSign className="size-4" /> {salary}
-      </span>
-      <span className="flex gap-x-2 items-center">
-        <Clock className="size-4" /> {postedTime}
-      </span>
+    <p className="flex gap-x-4 text-neutral/50 items-center">
+      <BadgeDollarSign className="size-4" /> {salary}
+    </p>
+  );
+}
+
+function PostedTime() {
+  const { postedTime } = useJobCard();
+
+  return (
+    <p className="flex gap-x-1 text-neutral/50 items-center">
+      <Clock className="size-4" /> {postedTime}
     </p>
   );
 }
@@ -66,23 +72,23 @@ function SalaryAndTime() {
 function Description() {
   const { description } = useJobCard();
 
-  return <p className="line-clamp-3 text-neutral/80">{description}</p>;
+  return <p className="line-clamp-3 my-4 text-neutral/80">{description}</p>;
 }
 
 function Apply() {
   const { title } = useJobCard();
 
   return (
-    <div className="h-full @md:row-start-1 @md:col-start-2 @md:row-span-full">
+    <div>
       <StyledLink
         href={`/job/${encodeURIComponent(title)}`}
-        pad="lg"
         rad="xl"
-        variant="sky"
-        hover="ghost-sky"
-        className="ml-auto"
+        y="center"
+        variant="link"
+        hover="ghost-light"
+        className="text-accent ml-auto gap-x-2 tracking-wide"
       >
-        Apply
+        View <ArrowUp className="rotate-45 size-4" />
       </StyledLink>
     </div>
   );
