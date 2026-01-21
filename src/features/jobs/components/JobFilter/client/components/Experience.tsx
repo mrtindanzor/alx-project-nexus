@@ -26,7 +26,8 @@ function Card({ className, title, ...props }: ExprienceCardProps) {
   return (
     <li {...props} className={cn(className)}>
       <Button
-        variant={selected ? "ghost-sky" : "none"}
+        variant={selected ? "ghost-sky" : "white"}
+        className="md:text-primary"
         onClick={() => setFilter("experience", title)}
         pad="md"
         w="full"

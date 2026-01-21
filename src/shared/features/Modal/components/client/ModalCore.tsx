@@ -20,7 +20,7 @@ export function ModalCore({
     <FullscreenBackdrop
       close={close}
       inert={!isTopMost}
-      backdropClassName={cn(!isFirst && "bg-muted/50", backdropClassName)}
+      backdropClassName={cn(!isFirst && "bg-primary/50", backdropClassName)}
       style={{ zIndex }}
       id={id}
     >
