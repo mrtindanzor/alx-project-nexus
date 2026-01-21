@@ -1,7 +1,7 @@
 "use client";
 
 import { SORT_FILTERS } from "@/features/jobs/constants";
-import Dropdown from "@/shared/ui/Dropdown/Dropdown";
+import { Dropdown } from "@/shared/features/Dropdown";
 import { useFilterCtx } from "../hooks/useFilters";
 
 export function SortBy() {

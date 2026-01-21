@@ -13,7 +13,7 @@ export function JobCard({ job, className, ...props }: JobCardProps) {
       <li
         {...props}
         className={cn(
-          "grid h-fit gap-y-2 gap-x-4 grid-cols-[1fr_auto] py-8 px-6 rounded-xl bg-primary *:borde *:not-last:col-start-1",
+          "grid h-fit gap-y-2 gap-x-4 @md:grid-cols-[1fr_auto] py-8 px-6 rounded-xl bg-primary *:not-last:col-start-1",
           className,
         )}
       >
@@ -30,7 +30,11 @@ export function JobCard({ job, className, ...props }: JobCardProps) {
 function CardHeader() {
   const { title } = useJobCard();
 
-  return <h3 className="text-2xl text-neutral">{title}</h3>;
+  return (
+    <h3 className="text-[clamp(1.3rem,calc(0.1rem+4vw),1.8rem)] text-neutral">
+      {title}
+    </h3>
+  );
 }
 
 function CardLocation() {
@@ -69,13 +73,14 @@ function Apply() {
   const { title } = useJobCard();
 
   return (
-    <div className="h-full row-start-1 col-start-2 row-span-full">
+    <div className="h-full @md:row-start-1 @md:col-start-2 @md:row-span-full">
       <StyledLink
         href={`/job/${encodeURIComponent(title)}`}
         pad="lg"
         rad="xl"
         variant="sky"
         hover="ghost-sky"
+        className="ml-auto"
       >
         Apply
       </StyledLink>

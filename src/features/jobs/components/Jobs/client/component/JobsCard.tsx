@@ -7,7 +7,7 @@ export function JobsCard() {
   const { jobs } = useJobs();
 
   return (
-    <ul className="grid h-fit gap-y-2">
+    <ul className="@container grid h-fit gap-y-2">
       {jobs.map((job) => (
         <JobCard key={job.title} job={job} />
       ))}
