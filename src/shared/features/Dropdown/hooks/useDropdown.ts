@@ -1,51 +1,36 @@
-import { useCallback, useImperativeHandle, useRef, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import { useAutoHide } from "@/shared/hooks/useAutoHide";
-import type {
-  UseDropDownListProps,
-  UseDropdownItemProps,
-} from "../dropdown.types";
+import { DropDownContext } from "../components/Dropdown";
+import type { UseDropdownItemProps } from "../dropdown.types";
 
-export function useDropdownItem<T>({
-  setIsOpen,
-  setValue,
-  value,
-}: UseDropdownItemProps<T>) {
+export function useDropdownItem({ value, index }: UseDropdownItemProps) {
+  const { setIsOpen, setValue } = useDropdownCtx();
+
   const handleToggle = useCallback(() => {
-    setValue(value);
+    setValue(value, index);
     setIsOpen(false);
-  }, [setIsOpen, setValue, value]);
+  }, [setIsOpen, setValue, index, value]);
 
   return { handleToggle };
 }
 
-export function useDropDownList<T>({ ref }: UseDropDownListProps<T>) {
+export function useDropdown() {
   const [isOpen, setIsOpen] = useState(false);
 
-  useImperativeHandle(ref, () => {
-    return {
-      setIsOpen(value) {
-        setIsOpen(value);
-      },
-      isOpen,
-    };
-  }, [isOpen]);
-
-  return { isOpen, setIsOpen };
-}
-
-export function useDropdown() {
-  const dropDownRef = useRef<{
-    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-    isOpen: boolean;
-  }>(null);
-
   const { captureRef } = useAutoHide({
-    setIsOpen: () => dropDownRef.current?.setIsOpen(false),
-    isOpen: true,
+    setIsOpen: () => setIsOpen(false),
+    isOpen: isOpen,
     event: "click",
   });
 
-  const toggle = () => dropDownRef.current?.setIsOpen((a) => !a);
+  const toggle = () => setIsOpen((a) => !a);
 
-  return { captureRef, dropDownRef, toggle };
+  return { captureRef, isOpen, setIsOpen, toggle };
+}
+
+export function useDropdownCtx() {
+  const ctx = useContext(DropDownContext);
+  if (!ctx) throw Error("DropDownContext not defined");
+
+  return ctx;
 }

@@ -23,7 +23,7 @@ function SalaryRange() {
         Annual Salary Range (GHS){" "}
       </span>
       <JobInput name="minSalary" label="" placeholder="Min: 80,000" />
-      <Minus className="hidden @xs:flex my-auto text-neutral/60" />
+      <Minus className="hidden @xs:flex my-auto text-muted-2" />
       <JobInput name="maxSalary" label="" placeholder="Min: 120,000" />
       <Hint />
     </div>
@@ -37,7 +37,7 @@ function Hint() {
         <LightBulbIcon className="size-7 fill-accent text-accent" />
       </div>
       <h4 className="text-accent font-bold text-lg">Pro Tip</h4>
-      <p className="text-neutral/70">
+      <p className="text-primary/80">
         Jobs with visible salary ranges recieve 75% more clicks and 40% more
         applications on average.
       </p>

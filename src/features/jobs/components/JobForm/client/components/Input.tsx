@@ -26,6 +26,7 @@ export function JobInput<T extends PostJobPaths>({
         aria-labelledby={id}
         {...props}
         className="py-2.5! w-full"
+        variant="outline"
         {...action(name)}
       />
     </div>
@@ -49,7 +50,8 @@ export function JobTextArea<T extends PostJobPaths>({
       <Textarea
         aria-labelledby={id}
         {...props}
-        className="py-2.5!"
+        className="py-2.5! "
+        variant="outline"
         {...register(name)}
       />
     </div>

@@ -5,11 +5,14 @@ import type { InputProps, TextAreaProps } from "../types";
 export const inputVariants = cva("py-2 px-4 rounded-xl", {
   variants: {
     variant: {
-      primary: "bg-primary text-neutral",
+      muted: "bg-muted text-neutral",
+      ghost: "bg-transparent text-primary",
+      outline: "bg-muted outline-2 text-primary outline-muted-2",
+      none: "",
     },
   },
   defaultVariants: {
-    variant: "primary",
+    variant: "ghost",
   },
 });
 

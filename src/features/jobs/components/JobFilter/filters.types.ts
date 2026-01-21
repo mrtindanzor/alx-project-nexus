@@ -1,5 +1,5 @@
 import type { ComponentProps } from "react";
-import type { FilterOptions } from "../../jobs.types";
+import type { FilterOptions } from "../../jobs.contract.types";
 import type { useFilters } from "./client/hooks/useFilters";
 
 export type CardWrapperProps = {

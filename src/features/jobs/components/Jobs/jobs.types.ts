@@ -1,4 +1,4 @@
-import type { JobType } from "@/features/jobs/jobs.types";
+import type { JobType } from "@/features/jobs/jobs.contract.types";
 
 export type JobsProviderContextProps = {
   jobs: JobType[];

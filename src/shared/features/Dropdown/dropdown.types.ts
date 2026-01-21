@@ -1,39 +1,33 @@
+/** biome-ignore-all lint/suspicious/noExplicitAny: Create context does not accept generics */
 import type { ButtonVariantTypes } from "lpm/ui/Buttons";
+import type React from "react";
 import type { ComponentProps } from "react";
 
-export type DropDownItem<T> = {
-  readonly icon?: React.ElementType;
-  readonly value: T;
-  readonly title: string;
-  readonly className?: string;
+export type DropDownItem<T = any> = {
+  icon?: React.ElementType;
+  value: T;
+  title: string;
+  className?: string;
+  index: number;
 } & ButtonVariantTypes;
 
-export type DropDownProps<T> = {
+export type DropDownProps<T = any> = {
   Icon?: React.ElementType;
   title?: string;
   setValue: (value: T, index?: number) => void;
-  items: readonly DropDownItem<T>[];
-  buttonProps?: ButtonVariantTypes;
+  items: Omit<DropDownItem<T>, "index">[];
+  buttonProps?: { className?: string } & ButtonVariantTypes;
+  dropDownListClassName?: string;
 } & ComponentProps<"div">;
 
-export type DropDownListProps<T> = Pick<
-  DropDownProps<T>,
-  "items" | "setValue"
+export type DropDownListProps = Pick<DropDownProps, "items" | "setValue">;
+
+export type UseDropdownItemProps = Pick<DropDownItem, "value" | "index">;
+
+export type DropDownContextProps = Pick<
+  DropDownProps,
+  "items" | "setValue" | "dropDownListClassName"
 > & {
-  ref: React.RefObject<{
-    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-    isOpen: boolean;
-  } | null>;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isOpen: boolean;
 };
-
-export type DropDownItemProps<T> = DropDownItem<T> &
-  Pick<DropDownProps<T>, "setValue"> & {
-    setIsOpen: (value: boolean) => void;
-  };
-
-export type UseDropdownItemProps<T> = Pick<
-  DropDownItemProps<T>,
-  "setValue" | "setIsOpen" | "value"
->;
-
-export type UseDropDownListProps<T> = Pick<DropDownListProps<T>, "ref">;

@@ -4,29 +4,26 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  --color-muted: var(--color-slate-950);
-  --color-muted-light: var(--color-slate-900);
+  --color-muted: var(--color-slate-100);
+  --color-muted-2: var(--color-gray-200);
   --color-neutral: var(--color-white);
-  --color-primary: var(--color-slate-800);
+  --color-primary: var(--color-black);
   --color-accent: var(--color-sky-600);
 }
 
 @layer base {
   * ::-webkit-scrollbar {
-    @apply w-1;
+    @apply w-1 h-1.5;
   }
 
   * ::-webkit-scrollbar-track {
-    @apply bg-muted;
+    @apply bg-muted-2 rounded-3xl;
   }
 
   * ::-webkit-scrollbar-thumb {
-    @apply bg-neutral rounded-2xl;
+    @apply bg-neutral rounded-2xl border border-primary cursor-grab active:cursor-grabbing;
   }
 
-  body {
-    @apply bg-muted-light;
-  }
   button {
     @apply cursor-pointer;
   }

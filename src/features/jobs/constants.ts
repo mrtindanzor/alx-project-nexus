@@ -1,5 +1,5 @@
 import type { PostJobType } from "./components/JobForm/jobform.types";
-import type { JobType } from "./jobs.types";
+import type { JobType } from "./jobs.contract.types";
 
 export const SORT_FILTERS = ["Latest", "Recommended"] as const;
 
@@ -19,7 +19,7 @@ export const POST_JOB_DEFAULT: PostJobType = {
   type: "Full-time",
   experience: "Entry-level",
   description: "",
-  skills: [],
+  skills: ["React", "TypeScript", "Node.js", "MongoDb"],
 };
 
 export const MOCK_JOBS: JobType[] = [
@@ -32,7 +32,7 @@ export const MOCK_JOBS: JobType[] = [
     experience: "Mid-weight",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita delectus officiis iusto doloremque consequuntur quod. Nostrum et natus iste ipsam soluta dignissimos fugiat ipsum ad! Soluta dolor explicabo aliquam nesciunt?",
-    skills: [],
+    skills: ["React", "TypeScript", "Node.js", "MongoDb"],
   },
   {
     title: "Backend Engineer",
@@ -43,7 +43,7 @@ export const MOCK_JOBS: JobType[] = [
     experience: "Senior",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita delectus officiis iusto doloremque consequuntur quod. Nostrum et natus iste ipsam soluta dignissimos fugiat ipsum ad! Soluta dolor explicabo aliquam nesciunt?",
-    skills: [],
+    skills: ["React", "TypeScript", "Node.js", "MongoDb"],
   },
   {
     title: "UI/UX Designer",
@@ -54,7 +54,7 @@ export const MOCK_JOBS: JobType[] = [
     experience: "Entry-level",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita delectus officiis iusto doloremque consequuntur quod. Nostrum et natus iste ipsam soluta dignissimos fugiat ipsum ad! Soluta dolor explicabo aliquam nesciunt?",
-    skills: [],
+    skills: ["React", "TypeScript", "Node.js", "MongoDb"],
   },
   {
     title: "QA Tester",
@@ -65,6 +65,6 @@ export const MOCK_JOBS: JobType[] = [
     experience: "Entry-level",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita delectus officiis iusto doloremque consequuntur quod. Nostrum et natus iste ipsam soluta dignissimos fugiat ipsum ad! Soluta dolor explicabo aliquam nesciunt?",
-    skills: [],
+    skills: ["React", "TypeScript", "Node.js", "MongoDb"],
   },
 ];
