@@ -60,7 +60,7 @@ export function Modal({
             {...props}
             autoNone
             className={cn(
-              "bg-primary grid grid-rows-[auto_1fr_auto] space-y-4 outline sm:outline outline-muted h-[90vh] max-h-[90vh] max-w-7xl rounded-t-2xl w-full absolute px-2 sm:px-4 md:px-6 pb-2 overflow-hidden",
+              "bg-muted-2 grid grid-rows-[auto_1fr_auto] space-y-4 outline sm:outline outline-muted h-[90vh] max-h-[90vh] max-w-7xl rounded-t-2xl w-full absolute px-2 sm:px-4 md:px-6 pb-2 overflow-hidden",
               variant === "thumb" && "pt-8",
               modalPosition(direction, variant === "thumb"),
               className,
@@ -122,9 +122,9 @@ function Thumb({ controls, direction }: ModalThumbProps) {
       onPointerDown={(e) => controls.start(e)}
     >
       <Pill
-        hover="light"
-        variant="light"
-        className="h-2 opacity-30 group-hover:opacity-100 w-[clamp(4rem,calc(20vw+0.1rem),8rem)] mx-auto"
+        hover="dark"
+        variant="sky"
+        className="opacity-30 group-hover:opacity-100 w-[clamp(4rem,calc(20vw+0.1rem),8rem)] mx-auto"
       ></Pill>
     </div>
   );

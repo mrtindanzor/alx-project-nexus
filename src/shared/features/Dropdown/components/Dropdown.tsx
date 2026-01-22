@@ -24,7 +24,7 @@ export function Dropdown<T>({
   items,
   setValue,
   className,
-  Icon,
+  Icon = ChevronsUpDown,
   buttonProps,
   dropDownListClassName,
   ...props
@@ -55,17 +55,10 @@ export function Dropdown<T>({
           {...btnProps}
         >
           {title}
-          {Icon ? (
-            <Icon
-              ref={captureRef(1)}
-              className="size-4 stroke-2 justify-center flex"
-            />
-          ) : (
-            <ChevronsUpDown
-              ref={captureRef(2)}
-              className="size-4 stroke-2 justify-center flex"
-            />
-          )}
+          <Icon
+            ref={captureRef(1)}
+            className="size-4 stroke-2 justify-center flex"
+          />
         </Button>
         <DropdownList />
       </div>
@@ -83,7 +76,7 @@ export function DropdownList() {
           animate="show"
           exit="hidden"
           variants={{ hidden: { y: 5 } }}
-          className="absolute drop-shadow z-20 top-[calc(100%+0.25rem)] right-0 max-h-80 w-50"
+          className="absolute drop-shadow z-50 top-[calc(100%+0.25rem)] right-0 max-h-80 w-50"
         >
           <ul
             className={cn(
