@@ -1,21 +1,26 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { type FormEvent, useCallback, useContext, useMemo } from "react";
+import {
+  type FormEvent,
+  useCallback,
+  useContext,
+  useLayoutEffect,
+  useState,
+} from "react";
 import type { FilterOptions } from "@/features/jobs/jobs.contract.types";
 import type { GetSelectedValue, SetFilterValue } from "../../filters.types";
 import { FiltersContext } from "../components/FilterProvider";
 
-export function useFilters() {
-  const router = useRouter();
-  const pathname = usePathname();
+export function useSetFilters() {
+  const { setFilters } = useFilterCtx();
   const searchParams = useSearchParams();
 
-  const filters = useMemo(() => {
+  useLayoutEffect(() => {
     const jobTypes = searchParams.getAll("jobType");
     const experiences = searchParams.getAll("experience");
 
-    return {
+    setFilters({
       sort: (searchParams.get("sort") || "Latest") as FilterOptions["sort"],
       jobType: (jobTypes.length > 0
         ? jobTypes
@@ -24,8 +29,20 @@ export function useFilters() {
         ? experiences
         : ["Mid-weight"]) as FilterOptions["experience"],
       search: searchParams.get("search") || "",
-    };
-  }, [searchParams]);
+    });
+  }, [searchParams, setFilters]);
+}
+
+export function useFilters() {
+  const [filters, setFilters] = useState<FilterOptions>({
+    search: "",
+    experience: ["Mid-weight"],
+    jobType: ["Full-time"],
+    sort: "Recommended",
+  });
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   const isSelected = useCallback(
     <T extends keyof FilterOptions>(option: T, match: GetSelectedValue<T>) => {
@@ -93,6 +110,7 @@ export function useFilters() {
     getSelected,
     handleSearchSubmit,
     resetFilters,
+    setFilters,
   };
 }
 

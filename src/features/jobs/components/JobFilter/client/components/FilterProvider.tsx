@@ -1,9 +1,9 @@
 "use client";
 
-import { createContext, type PropsWithChildren } from "react";
+import { createContext, type PropsWithChildren, Suspense } from "react";
 import type { FiltersContextProps } from "../../filters.types";
 import { JobFilter } from "../../JobFilter";
-import { useFilters } from "../hooks/useFilters";
+import { useFilters, useSetFilters } from "../hooks/useFilters";
 import { JobSearch } from "./JobSearch";
 
 export const FiltersContext = createContext<FiltersContextProps>(null);
@@ -13,6 +13,9 @@ export function FilterProvider({ children }: PropsWithChildren) {
 
   return (
     <FiltersContext.Provider value={filterProps}>
+      <Suspense fallback={<div />}>
+        <UpdateFilters />
+      </Suspense>
       <div className="@container grid md:grid-cols-[auto_1fr] gap-y-4 gap-x-10">
         <JobSearch />
         <JobFilter />
@@ -20,4 +23,10 @@ export function FilterProvider({ children }: PropsWithChildren) {
       </div>
     </FiltersContext.Provider>
   );
+}
+
+function UpdateFilters() {
+  useSetFilters();
+
+  return null;
 }
