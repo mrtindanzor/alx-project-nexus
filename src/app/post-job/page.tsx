@@ -1,5 +1,3 @@
-import { PostJobPage } from "@/features/jobs";
+import { PostJobPage } from "@/features/jobs/pages";
 
-export default function PostJob() {
-  return <PostJobPage />;
-}
+export default PostJobPage;

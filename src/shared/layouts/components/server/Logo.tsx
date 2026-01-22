@@ -1,6 +1,6 @@
 import type { ComponentProps } from "react";
-import { APP_NAME } from "../contants/app";
-import { cn } from "../utils/cn";
+import { APP_NAME } from "../../../contants/app";
+import { cn } from "../../../utils/cn";
 
 export function Logo({ className, ...props }: ComponentProps<"span">) {
   return (

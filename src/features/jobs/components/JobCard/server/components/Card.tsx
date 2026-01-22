@@ -1,37 +1,33 @@
-"use client";
-
 import { ArrowUp, BadgeDollarSign, Clock, MapPin } from "lucide-react";
+import type { JobType } from "@/features/jobs/jobs.contract.types";
 import { Pill, StyledLink } from "@/shared/ui/Buttons";
 import { cn } from "@/shared/utils/cn";
 import type { JobCardProps } from "../../jobcard.types";
-import { useJobCard } from "../hooks/useJobCard";
-import { JobCardProvider } from "./JobCardProvider";
 
 export function JobCard({ job, className, ...props }: JobCardProps) {
+  const { title, salary, location, type, skills, postedTime, description } =
+    job;
+
   return (
-    <JobCardProvider job={job}>
-      <li
-        {...props}
-        className={cn(
-          "grid h-fit gap-x-4 py-6 px-8 rounded-xl gap-y-1 outline-2 outline-muted-2/70 bg-neutral",
-          className,
-        )}
-      >
-        <CardHeader />
-        <Salary />
-        <CardLocation />
-        <Description />
-        <Skills />
-        <PostedTime />
-        <Apply />
-      </li>
-    </JobCardProvider>
+    <li
+      {...props}
+      className={cn(
+        "grid h-fit gap-x-4 py-6 px-8 rounded-xl gap-y-1 outline-2 outline-muted-2/70 bg-neutral",
+        className,
+      )}
+    >
+      <CardHeader title={title} />
+      <Salary salary={salary} />
+      <CardLocation type={type} location={location} />
+      <Description description={description} />
+      <Skills skills={skills} />
+      <PostedTime postedTime={postedTime} />
+      <Apply title={title} />
+    </li>
   );
 }
 
-function CardHeader() {
-  const { title } = useJobCard();
-
+function CardHeader({ title }: Pick<JobType, "title">) {
   return (
     <h3 className="text-[clamp(1.3rem,calc(0.1rem+3vw),1.8rem)] text-accent font-semibold">
       {title}
@@ -39,9 +35,7 @@ function CardHeader() {
   );
 }
 
-function CardLocation() {
-  const { location, type } = useJobCard();
-
+function CardLocation({ location, type }: Pick<JobType, "location" | "type">) {
   return (
     <p className=" flex items-center gap-x-1 text-primary/80">
       <MapPin className="size-4" /> {location}
@@ -50,9 +44,7 @@ function CardLocation() {
   );
 }
 
-function Salary() {
-  const { salary } = useJobCard();
-
+function Salary({ salary }: Pick<JobType, "salary">) {
   return (
     <p className="flex gap-x-4  items-center text-primary/90">
       <BadgeDollarSign className="size-4" /> {salary}
@@ -60,9 +52,7 @@ function Salary() {
   );
 }
 
-function PostedTime() {
-  const { postedTime } = useJobCard();
-
+function PostedTime({ postedTime }: Pick<JobType, "postedTime">) {
   return (
     <p className="flex gap-x-1 mt-2  items-center text-primary/60">
       <Clock className="size-4" /> {postedTime}
@@ -70,9 +60,7 @@ function PostedTime() {
   );
 }
 
-function Description() {
-  const { description } = useJobCard();
-
+function Description({ description }: Pick<JobType, "description">) {
   return (
     <p className="line-clamp-3 tracking-tight mt-2 text-primary/80">
       {description}
@@ -80,9 +68,7 @@ function Description() {
   );
 }
 
-function Skills() {
-  const { skills } = useJobCard();
-
+function Skills({ skills }: Pick<JobType, "skills">) {
   return (
     <ul className="grid grid-flow-col py-1 w-fit max-w-full auto-cols-auto overflow-x-auto gap-2">
       {skills.map((skill) => (
@@ -96,9 +82,7 @@ function Skills() {
   );
 }
 
-function Apply() {
-  const { title } = useJobCard();
-
+function Apply({ title }: Pick<JobType, "title">) {
   return (
     <div>
       <StyledLink

@@ -33,6 +33,15 @@
   .link {
     @apply before:content-[""] before:absolute before:inset-0 before:z-1;
   }
+  .flex-place-center {
+    @apply flex justify-center items-center;
+  }
+}
+
+@layer components {
+  .white-wrapper {
+    @apply outline-2 outline-muted-2/60 bg-neutral rounded-xl;
+  }
 }
 
 body {
