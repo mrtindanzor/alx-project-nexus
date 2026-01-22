@@ -1,11 +1,17 @@
 "use client";
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import {
+  type ReadonlyURLSearchParams,
+  usePathname,
+  useRouter,
+  useSearchParams,
+} from "next/navigation";
 import {
   type FormEvent,
   useCallback,
   useContext,
   useLayoutEffect,
+  useRef,
   useState,
 } from "react";
 import type { FilterOptions } from "@/features/jobs/jobs.contract.types";
@@ -13,7 +19,7 @@ import type { GetSelectedValue, SetFilterValue } from "../../filters.types";
 import { FiltersContext } from "../components/FilterProvider";
 
 export function useSetFilters() {
-  const { setFilters } = useFilterCtx();
+  const { setFilters, setSearchParams } = useFilterCtx();
   const searchParams = useSearchParams();
 
   useLayoutEffect(() => {
@@ -30,10 +36,13 @@ export function useSetFilters() {
         : ["Mid-weight"]) as FilterOptions["experience"],
       search: searchParams.get("search") || "",
     });
-  }, [searchParams, setFilters]);
+
+    setSearchParams(searchParams);
+  }, [searchParams, setSearchParams, setFilters]);
 }
 
 export function useFilters() {
+  const searchParamsRef = useRef<ReadonlyURLSearchParams>(null);
   const [filters, setFilters] = useState<FilterOptions>({
     search: "",
     experience: ["Mid-weight"],
@@ -42,7 +51,13 @@ export function useFilters() {
   });
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
+
+  const setSearchParams = useCallback(
+    (searchParams: ReadonlyURLSearchParams) => {
+      searchParamsRef.current = searchParams;
+    },
+    [],
+  );
 
   const isSelected = useCallback(
     <T extends keyof FilterOptions>(option: T, match: GetSelectedValue<T>) => {
@@ -65,6 +80,9 @@ export function useFilters() {
 
   const setFilter = useCallback(
     <T extends keyof FilterOptions>(option: T, value: SetFilterValue<T>) => {
+      const searchParams = searchParamsRef.current;
+      if (!searchParams) return;
+
       const params = new URLSearchParams(searchParams);
 
       switch (option) {
@@ -84,7 +102,7 @@ export function useFilters() {
         }
       }
     },
-    [pathname, router, searchParams],
+    [pathname, router],
   );
 
   const handleSearchSubmit = useCallback(
@@ -111,6 +129,7 @@ export function useFilters() {
     handleSearchSubmit,
     resetFilters,
     setFilters,
+    setSearchParams,
   };
 }
 
