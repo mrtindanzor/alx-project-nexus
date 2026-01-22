@@ -92,7 +92,7 @@ export const ButtonVariants = cva(
     },
     defaultVariants: {
       variant: "ghost-light",
-      hover: "outline",
+      hover: "dark",
       pad: "sm",
       rad: "sm",
       effectTiming: "normal",

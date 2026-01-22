@@ -1,1 +1,1 @@
-export { JobCard } from "./client/components/Card";
+export { JobCard } from "./server/components/Card";

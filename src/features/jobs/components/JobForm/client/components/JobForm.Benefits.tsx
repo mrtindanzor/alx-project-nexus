@@ -1,5 +1,3 @@
-"use client";
-
 import { LightBulbIcon } from "@heroicons/react/24/outline";
 import { Minus } from "lucide-react";
 import { FormSectionWrapper } from "../../server";
@@ -19,9 +17,7 @@ export function JobFormBenefits() {
 function SalaryRange() {
   return (
     <div className="grid @xs:grid-cols-[1fr_auto_1fr] gap-x-2 border-b pb-8 border-b-neutral/10">
-      <span className="col-span-full font-bold">
-        Annual Salary Range (GHS){" "}
-      </span>
+      <span className="col-span-full font-bold">Annual Salary Range (GHS)</span>
       <JobInput name="minSalary" label="" placeholder="Min: 80,000" />
       <Minus className="hidden @xs:flex my-auto text-muted-2" />
       <JobInput name="maxSalary" label="" placeholder="Min: 120,000" />

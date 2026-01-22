@@ -1,11 +1,9 @@
-import { FilterProvider } from "../../components/JobFilter";
-import { JobsCard } from "../../components/Jobs/client/component/JobsCard";
-import { Header } from "../../layouts/JobFilter/Header";
+import { FilterProvider, JobFilterHeader, JobsCard } from "@/features/jobs";
 
 export function JobsPage() {
   return (
     <>
-      <Header />
+      <JobFilterHeader />
 
       <main className="mt-18 py-10 max-w-6xl mx-auto">
         <FilterProvider>

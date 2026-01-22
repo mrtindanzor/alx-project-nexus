@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, type PropsWithChildren, useState } from "react";
-import { MOCK_JOBS } from "@/features/jobs/constants";
+import { MOCK_JOBS } from "@/features/jobs";
 import type { JobsProviderContextProps } from "../../jobs.types";
 
 export const JobsContext = createContext<JobsProviderContextProps>(null);
