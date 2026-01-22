@@ -14,7 +14,7 @@ export function JobPageHeader() {
           pad="lg"
           href="/post-job"
         >
-          Post a Job
+          Browse more jobs
         </StyledLink>
       </div>
     </header>

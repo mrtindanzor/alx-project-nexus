@@ -2,6 +2,7 @@
 
 import { JOB_TYPES } from "@/features/jobs/constants";
 import { Button } from "@/shared/ui/Buttons";
+import { cn } from "@/shared/utils/cn";
 import type { JobTypeCardProps } from "../../filters.types";
 import { useFilterCtx } from "../hooks/useFilters";
 import { CardWrapper } from "./CardWrapper";
@@ -30,7 +31,7 @@ function Card({ title, ...props }: JobTypeCardProps) {
         pad="lg"
         rad="lg"
         w="full"
-        className="md:text-primary"
+        className={cn("md:text-primary", selected && "md:text-accent")}
         onClick={() => setFilter("jobType", title)}
       >
         {title}

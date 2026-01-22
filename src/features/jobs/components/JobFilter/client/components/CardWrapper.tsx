@@ -23,13 +23,13 @@ export function CardWrapper({
         className,
       )}
     >
-      <h2 className="whitespace-nowrap font-bold hidden md:block tracking-tight">
+      <h2 className="font-chakra whitespace-nowrap font-bold hidden md:block tracking-tight">
         {title}
       </h2>
       <div className="hidden md:block mt-2">{children}</div>
 
       <Button
-        variant="light"
+        variant="dark"
         hover="sky"
         className="whitespace-nowrap tracking-tight outline-muted-2 md:hidden gap-x-2 text-[clamp(0.75rem,calc(0.1rem+5vw),1rem)]"
         onClick={open}

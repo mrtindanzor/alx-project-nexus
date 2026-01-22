@@ -1,15 +1,11 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Chakra_Petch } from "next/font/google";
 import "./globals.css";
 import { BaseProvider } from "@/shared/BaseProvider";
 import { AppFooter } from "@/shared/layouts/components/server/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const chakraPetch = Chakra_Petch({
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-chakra",
   subsets: ["latin"],
 });
 
@@ -20,9 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-muted text-primary antialiased`}
-      >
+      <body className={`bg-muted text-primary ${chakraPetch.variable}`}>
         <BaseProvider>{children}</BaseProvider>
         <AppFooter />
       </body>

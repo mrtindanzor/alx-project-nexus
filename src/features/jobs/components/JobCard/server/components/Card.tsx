@@ -29,7 +29,7 @@ export function JobCard({ job, className, ...props }: JobCardProps) {
 
 function CardHeader({ title }: Pick<JobType, "title">) {
   return (
-    <h3 className="text-[clamp(1.3rem,calc(0.1rem+3vw),1.8rem)] text-accent font-semibold">
+    <h3 className="font-chakra text-[clamp(1.3rem,calc(0.1rem+3vw),1.8rem)] text-primary font-semibold">
       {title}
     </h3>
   );

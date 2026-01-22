@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/shared/ui/Buttons";
 import { useFilters } from "../hooks/useFilters";
 
