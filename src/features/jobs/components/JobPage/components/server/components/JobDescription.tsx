@@ -27,7 +27,7 @@ export function JobDecription({ description, skills }: JobDecriptionProps) {
 function SectionWrapper({ title, children }: DescriptionSectionWrapperProps) {
   return (
     <section className="space-y-4">
-      <h2 className="border-l-4 border-l-accent pl-2  font-bold text-xl">
+      <h2 className="border-l-4 font-chakra border-l-accent pl-2  font-bold text-xl">
         {title}
       </h2>
 

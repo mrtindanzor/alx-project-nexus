@@ -11,7 +11,7 @@ export function JobFacts({
 }: JobFactsProps) {
   return (
     <section className="white-wrapper grid gap-y-8 h-fit py-6 px-6 col-start-1 row-start-2 md:col-start-2">
-      <h2 className="text-xl font-bold flex items-center gap-x-1">
+      <h2 className="text-xl font-chakra font-bold flex items-center gap-x-1">
         <Info className="size-7 fill-accent text-neutral" /> Job Quick Facts
       </h2>
 
