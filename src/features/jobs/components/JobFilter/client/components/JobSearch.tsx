@@ -6,8 +6,8 @@ import { SortBy } from "./SortBy";
 
 export function JobSearch() {
   return (
-    <div className="@container grid gap-y-2 col-span-full">
-      <h1 className="text-xl font-sans font-bold tracking-tight">
+    <div className="@container px-4 grid gap-y-2 col-span-full">
+      <h1 className="text-2xl @md:text-3xl font-sans mb-8 max-w-7/10 @md:max-w-md mx-auto text-accent font-semibold text-center tracking-tight">
         Find your next role at a top-tier company.
       </h1>
       <SortBy />

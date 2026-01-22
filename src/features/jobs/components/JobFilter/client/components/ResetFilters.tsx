@@ -7,7 +7,7 @@ export function ResetFilters() {
   return (
     <Button
       onClick={resetFilters}
-      variant="outline"
+      variant="dark"
       hover="sky"
       w="full"
       x="center"

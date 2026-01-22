@@ -7,7 +7,7 @@ export function JobsPage() {
     <>
       <Header />
 
-      <main className="mt-18 py-10 px-4 max-w-6xl mx-auto">
+      <main className="mt-18 py-10 max-w-6xl mx-auto">
         <FilterProvider>
           <JobsCard />
         </FilterProvider>

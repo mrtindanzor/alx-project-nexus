@@ -25,8 +25,9 @@ function Card({ title, ...props }: JobTypeCardProps) {
   return (
     <li {...props}>
       <Button
-        variant={selected ? "ghost-sky" : "white"}
-        pad="md"
+        variant={selected ? "ghost-sky" : "none"}
+        hover="outline-dark"
+        pad="lg"
         rad="lg"
         w="full"
         className="md:text-primary"
