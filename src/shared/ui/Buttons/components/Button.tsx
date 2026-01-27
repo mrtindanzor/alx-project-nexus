@@ -8,18 +8,18 @@ export const ButtonVariants = cva(
     variants: {
       variant: {
         sky: "bg-accent text-neutral",
-        dark: "bg-primary text-neutral border",
-        light: "bg-neutral text-primary",
+        dark: "bg-muted text-neutral border",
+        light: "bg-neutral text-muted",
         white: "text-neutral",
-        success: "bg-success text-primary",
-        danger: "bg-danger text-primary",
+        success: "bg-success text-muted",
+        danger: "bg-danger text-muted",
         link: "underline underline-offset-4",
         outline: "border text-neutral",
-        "outline-dark": "border-2 text-primary",
+        "outline-dark": "border-2 text-muted",
         "outline-sky": "border border-accent text-accent",
         "outline-success": "border border-success text-success",
         "outline-danger": "border text-danger border-danger",
-        "ghost-dark": "bg-neutral/10 backrop-blur-xl text-primary",
+        "ghost-dark": "bg-neutral/10 backrop-blur-xl text-muted",
         "ghost-light": "bg-neutral/10 backrop-blur-xl text-light",
         "ghost-sky": "bg-accent/10 text-accent",
         none: "",
@@ -27,13 +27,13 @@ export const ButtonVariants = cva(
       hover: {
         sky: "hover:bg-accent hover:text-neutral hover:border-accent",
         "ghost-sky": "hover:bg-accent/10 hover:text-accent",
-        dark: "hover:bg-primary hover:text-neutral",
-        light: "hover:bg-neutral hover:hover:text-primary",
-        success: "hover:hover:bg-success hover:hover:text-primary",
-        danger: "hover:bg-danger hover:text-primary",
+        dark: "hover:bg-muted hover:text-neutral",
+        light: "hover:bg-neutral hover:hover:text-muted",
+        success: "hover:hover:bg-success hover:hover:text-muted",
+        danger: "hover:bg-danger hover:text-muted",
         link: "hover:underline hover:underline-offset-2",
         outline: "hover:bg-transparent hover:border hover:text-neutral",
-        "outline-dark": "hover:bg-transparent hover:border hover:text-primary",
+        "outline-dark": "hover:bg-transparent hover:border hover:text-muted",
         "outline-sky":
           "hover:bg-transparent hover:border hover:border-accent hover:text-accent",
         "outline-success":
@@ -41,7 +41,7 @@ export const ButtonVariants = cva(
         "outline-danger":
           "hover:bg-transparent hover:border hover:text-danger hover:border-danger",
         "ghost-dark":
-          "hover:bg-neutral/10 hover:backrop-blur-xl hover:text-primary",
+          "hover:bg-neutral/10 hover:backrop-blur-xl hover:text-muted",
         "ghost-light":
           "hover:bg-neutral/10 hover:border-none hover:backrop-blur-xl hover:text-neutral",
         none: "",
@@ -71,8 +71,8 @@ export const ButtonVariants = cva(
       },
       y: {
         center: "items-center",
-        left: "items-start",
-        right: "items-end",
+        start: "items-start",
+        end: "items-end",
       },
       w: {
         full: "w-full",
