@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 import { cn } from "@/shared/utils/cn";
-import type { InputProps, TextAreaProps } from "../types";
+import type { InputProps, TextAreaProps } from "./types";
 
 export const inputVariants = cva("py-2 px-4 rounded-xl", {
   variants: {

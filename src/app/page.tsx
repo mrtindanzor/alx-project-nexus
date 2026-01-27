@@ -1,5 +1,3 @@
-import { JobsPage } from "@/features/jobs/pages";
+import { Home } from "@/features/home";
 
-export default function Home() {
-  return <JobsPage />;
-}
+export default Home;

@@ -4,10 +4,9 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  --color-muted: var(--color-slate-100);
-  --color-muted-2: var(--color-gray-200);
+  --color-muted: var(--color-black);
+  --color-muted-stone: var(--color-stone-800);
   --color-neutral: var(--color-white);
-  --color-primary: var(--color-black);
   --color-accent: var(--color-sky-600);
   --font-chakra: var(--font-chakra);
 }
@@ -22,7 +21,7 @@
   }
 
   * ::-webkit-scrollbar-thumb {
-    @apply bg-muted-2 rounded-2xl cursor-grab active:cursor-grabbing;
+    @apply bg-muted-stone rounded-2xl cursor-grab active:cursor-grabbing;
   }
 
   button {
@@ -41,7 +40,10 @@
 
 @layer components {
   .white-wrapper {
-    @apply outline-2 outline-muted-2/60 bg-neutral rounded-xl;
+    @apply outline-2 outline-muted-stone/60 bg-neutral rounded-xl;
+  }
+  .section {
+    @apply max-w-6xl px-4 md:px-6 mx-auto;
   }
 }
 
