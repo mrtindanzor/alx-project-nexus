@@ -40,19 +40,28 @@ export function WelcomeBanner() {
         </p>
       </FramerAnimatePosition>
 
-      <StyledLink
-        variant="sky"
-        hover="light"
-        pad="xl"
-        rad="3xl"
-        x="center"
-        y="center"
-        href=""
-        className="gap-x-2 mx-auto"
+      <FramerAnimatePosition
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={{
+          hidden: { y: 50 },
+          show: { transition: { duration: 0.8, delay: 0.7 } },
+        }}
       >
-        <ChartPie />
-        Create a Poll
-      </StyledLink>
+        <StyledLink
+          href="/new-poll"
+          variant="sky"
+          hover="light"
+          pad="xl"
+          rad="3xl"
+          x="center"
+          y="center"
+          className="gap-x-2 mx-auto"
+        >
+          <ChartPie />
+          Create a Poll
+        </StyledLink>
+      </FramerAnimatePosition>
     </section>
   );
 }

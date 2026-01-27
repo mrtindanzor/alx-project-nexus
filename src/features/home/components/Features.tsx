@@ -19,7 +19,7 @@ function Feature({ icon: Icon, title, description }: FetureProps) {
     <li className="px-6 border-2 border-muted-stone opacity-90 rounded-xl max-w-100 pb-8">
       <span className="flex-place-center bg-accent/80 w-fit aspect-square p-2 rounded-xl mx-auto -translate-y-1/2"></span>
       <Pill
-        variant="sky"
+        variant="ghost-sky"
         hover="none"
         y="center"
         x="center"

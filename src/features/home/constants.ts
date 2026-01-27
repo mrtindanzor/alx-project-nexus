@@ -1,5 +1,9 @@
-import { FaceSmileIcon, SignalIcon } from "@heroicons/react/24/outline";
-import { Clock, CloudLightningIcon, Link, Shield } from "lucide-react";
+import {
+  BoltIcon,
+  FaceSmileIcon,
+  SignalIcon,
+} from "@heroicons/react/24/outline";
+import { Clock, Link, Shield } from "lucide-react";
 import type { FetureProps } from "./home.types";
 
 export const FEATURES = [
@@ -28,7 +32,7 @@ export const FEATURES = [
       "One link, endless reach. Share polls across social media, chats, or embed them directly into your site.",
   },
   {
-    icon: CloudLightningIcon,
+    icon: BoltIcon,
     title: "Instant Creation",
     description:
       "Create and publish a poll in seconds. No setup, no learning curve—just ask and collect answers.",
