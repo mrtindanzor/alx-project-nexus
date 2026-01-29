@@ -1,7 +1,7 @@
 "use client";
 
 import { JOB_TYPES } from "@/features/jobs/constants";
-import { Button } from "@/shared/ui/Buttons";
+import { Button } from "@/shared/ui/primitive/Buttons";
 import { cn } from "@/shared/utils/cn";
 import type { JobTypeCardProps } from "../../filters.types";
 import { useFilterCtx } from "../hooks/useFilters";

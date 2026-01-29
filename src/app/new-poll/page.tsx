@@ -1,3 +1,3 @@
-import { PollPage } from "@/features/poll";
+import { CreatePollPage } from "@/features/new-poll";
 
-export default PollPage;
+export default CreatePollPage;

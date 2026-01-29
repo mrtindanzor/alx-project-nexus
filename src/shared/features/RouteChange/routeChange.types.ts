@@ -1,4 +1,4 @@
-import type { ButtonProps } from "@/shared/ui/Buttons";
+import type { ButtonProps } from "@/shared/ui/primitive/Buttons";
 
 export type BackButtonProps = ButtonProps & {
   backUrl?: string;

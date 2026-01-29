@@ -1,7 +1,7 @@
 "use client";
 
 import { X } from "lucide-react";
-import { Pill } from "@/shared/ui/Buttons";
+import { Pill } from "@/shared/ui/primitive/Buttons";
 import type { SkillPillProps } from "../../jobform.types";
 import { FormSectionWrapper } from "../../server";
 import { useJobFormCtx } from "../hooks/useJobForm";

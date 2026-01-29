@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/shared/ui/Buttons";
+import { Button } from "@/shared/ui/primitive/Buttons";
 import { useFilters } from "../hooks/useFilters";
 
 export function ResetFilters() {

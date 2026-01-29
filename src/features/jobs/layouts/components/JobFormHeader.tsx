@@ -1,5 +1,5 @@
 import { Logo } from "@/shared/layouts/components/server/Logo";
-import { StyledLink } from "@/shared/ui/Buttons";
+import { StyledLink } from "@/shared/ui/primitive/Buttons";
 
 export function JobFormHeader() {
   return (

@@ -1,6 +1,6 @@
 import { ClockIcon } from "@heroicons/react/24/solid";
 import type { PageHeaderProps } from "@/features/jobs";
-import { Pill } from "@/shared/ui/Buttons";
+import { Pill } from "@/shared/ui/primitive/Buttons";
 
 export function PageHeader({ postedTime, title }: PageHeaderProps) {
   return (

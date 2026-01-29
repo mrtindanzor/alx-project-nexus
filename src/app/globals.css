@@ -6,9 +6,13 @@
 
   --color-muted: var(--color-black);
   --color-muted-stone: var(--color-stone-800);
+  --color-secondary: var(--color-slate-950);
+  --color-secondary-900: var(--color-slate-900);
   --color-neutral: var(--color-white);
+  --color-success: var(--color-green-600);
   --color-accent: var(--color-sky-600);
   --font-chakra: var(--font-chakra);
+  --color-danger: var(--color-rose-600);
 }
 
 @layer base {

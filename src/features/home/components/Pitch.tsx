@@ -1,5 +1,5 @@
 import { AnimateScroll } from "@/shared/features/Framer";
-import { MImage } from "@/shared/ui/MImage";
+import { MImage } from "@/shared/ui/primitive/MImage";
 
 export function Pitch() {
   return (
@@ -31,11 +31,23 @@ export function Pitch() {
         </p>
       </AnimateScroll>
 
-      <MImage
-        url="/poll.png"
-        title="Poll"
-        className="border-4 rounded-xl z-1 bg-muted border-muted-stone my-10 h-120 "
-      />
+      <AnimateScroll
+        {...{
+          styleKey: "scale",
+          offset: ["start end", "end end"],
+          inputRange: [0, 1],
+          outputRange: [0.7, 1],
+          spring: {
+            damping: 20,
+          },
+        }}
+      >
+        <MImage
+          url="/poll-create.png"
+          title="Poll"
+          className="border-4 pointer-events-none select-none rounded-xl z-1 bg-muted border-muted-stone my-10 h-120 "
+        />
+      </AnimateScroll>
     </section>
   );
 }
