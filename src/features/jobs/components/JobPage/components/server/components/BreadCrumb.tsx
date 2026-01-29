@@ -1,5 +1,5 @@
 import type { JobBreadCrumbsProps } from "@/features/jobs";
-import { Button, StyledLink } from "@/shared/ui/Buttons";
+import { Button, StyledLink } from "@/shared/ui/primitive/Buttons";
 
 export function JobPageBreadCrumb({ title }: JobBreadCrumbsProps) {
   return (

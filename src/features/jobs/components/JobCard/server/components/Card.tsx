@@ -1,6 +1,6 @@
 import { ArrowUp, BadgeDollarSign, Clock, MapPin } from "lucide-react";
 import type { JobType } from "@/features/jobs/jobs.contract.types";
-import { Pill, StyledLink } from "@/shared/ui/Buttons";
+import { Pill, StyledLink } from "@/shared/ui/primitive/Buttons";
 import { cn } from "@/shared/utils/cn";
 import type { JobCardProps } from "../../jobcard.types";
 

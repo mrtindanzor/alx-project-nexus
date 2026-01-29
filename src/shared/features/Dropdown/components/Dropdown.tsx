@@ -1,10 +1,10 @@
 "use client";
 
 import { AnimatePresence } from "framer-motion";
-import { Button } from "lpm/ui/Buttons";
 import { cn } from "lpm/utils/cn";
 import { ChevronsUpDown } from "lucide-react";
 import { createContext } from "react";
+import { Button } from "@/shared/ui/primitive/Buttons";
 import { FramerAnimatePosition } from "../../Framer";
 import type {
   DropDownContextProps,

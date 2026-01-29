@@ -1,8 +1,8 @@
 "use client";
 
 import { FramerAnimatePosition } from "lpm/features/Framer";
-import { CloseButton, Pill } from "lpm/ui/Buttons";
 import { cn } from "lpm/utils/cn";
+import { CloseButton, Pill } from "@/shared/ui/primitive/Buttons";
 import { modalPosition, thumbPositions } from "../../constants";
 import { useModal } from "../../hooks/useModal";
 import type { ModalThumbProps, ModalWrapperProps } from "../../modal.types";

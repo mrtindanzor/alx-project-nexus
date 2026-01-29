@@ -1,7 +1,7 @@
 "use client";
 
 import { useId } from "react";
-import { Input, Textarea } from "@/shared/ui/Input";
+import { Input, Textarea } from "@/shared/ui/primitive/Input";
 import { cn } from "@/shared/utils/cn";
 import type { JobInputProps, PostJobPaths } from "../../jobform.types";
 import { useJobFormCtx } from "../hooks/useJobForm";

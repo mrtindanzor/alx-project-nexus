@@ -1,4 +1,4 @@
-import { Button } from "@/shared/ui/Buttons";
+import { Button } from "@/shared/ui/primitive/Buttons";
 
 export function SubmitJobForm() {
   return (

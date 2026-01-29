@@ -1,6 +1,6 @@
 import type { ComponentProps } from "react";
 import type { GetUnions, PathValue } from "@/shared/types/lib/PathValue";
-import type { InputProps, TextAreaProps } from "@/shared/ui/Input";
+import type { InputProps, TextAreaProps } from "@/shared/ui/primitive/Input";
 import type { JobType } from "../../jobs.contract.types";
 import type { useJobForm } from "./client/hooks/useJobForm";
 

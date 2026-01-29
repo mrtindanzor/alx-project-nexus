@@ -1,6 +1,9 @@
-import { ChartPie } from "lucide-react";
+import { BarChart, ChartPie } from "lucide-react";
 import { FramerAnimatePosition } from "@/shared/features/Framer";
-import { StyledLink } from "@/shared/ui/Buttons";
+import {
+  StyledLink,
+  type StyledLinkProps,
+} from "@/shared/ui/primitive/Buttons";
 import { cn } from "@/shared/utils/cn";
 
 export function WelcomeBanner() {
@@ -40,28 +43,53 @@ export function WelcomeBanner() {
         </p>
       </FramerAnimatePosition>
 
-      <FramerAnimatePosition
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={{
-          hidden: { y: 50 },
-          show: { transition: { duration: 0.8, delay: 0.7 } },
-        }}
-      >
-        <StyledLink
-          href="/new-poll"
+      <div className="grid mx-auto gap-y-2">
+        <BannerButtons
           variant="sky"
           hover="light"
-          pad="xl"
-          rad="3xl"
-          x="center"
-          y="center"
-          className="gap-x-2 mx-auto"
+          href="/new-poll"
+          direction="-30%"
         >
           <ChartPie />
           Create a Poll
-        </StyledLink>
-      </FramerAnimatePosition>
+        </BannerButtons>
+
+        <BannerButtons
+          variant="outline"
+          hover="light"
+          href="/polls"
+          direction="30%"
+        >
+          <BarChart />
+          See live Polls
+        </BannerButtons>
+      </div>
     </section>
+  );
+}
+
+function BannerButtons({
+  direction,
+  className,
+  ...props
+}: StyledLinkProps & { direction: string }) {
+  return (
+    <FramerAnimatePosition
+      whileInView="show"
+      viewport={{ once: true }}
+      variants={{
+        hidden: { y: direction },
+        show: { transition: { duration: 1.4 } },
+      }}
+    >
+      <StyledLink
+        pad="xl"
+        rad="3xl"
+        x="center"
+        y="center"
+        className={cn("gap-x-2 mx-auto", className)}
+        {...props}
+      />
+    </FramerAnimatePosition>
   );
 }

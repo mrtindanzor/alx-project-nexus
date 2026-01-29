@@ -1,7 +1,8 @@
 /** biome-ignore-all lint/suspicious/noExplicitAny: Create context does not accept generics */
-import type { ButtonVariantTypes } from "lpm/ui/Buttons";
+
 import type React from "react";
 import type { ComponentProps } from "react";
+import type { ButtonVariantTypes } from "@/shared/ui/primitive/Buttons";
 
 export type DropDownItem<T = any> = {
   icon?: React.ElementType;

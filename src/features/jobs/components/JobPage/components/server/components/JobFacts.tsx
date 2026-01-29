@@ -1,7 +1,7 @@
 import { BanknotesIcon } from "@heroicons/react/24/outline";
 import { Briefcase, Globe2Icon, Info, TrendingUp } from "lucide-react";
 import type { JobFactCardProps, JobFactsProps } from "@/features/jobs";
-import { StyledLink } from "@/shared/ui/Buttons";
+import { StyledLink } from "@/shared/ui/primitive/Buttons";
 
 export function JobFacts({
   salary,

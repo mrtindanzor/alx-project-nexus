@@ -2,8 +2,8 @@
 
 import { Search } from "lucide-react";
 import { FramerAnimatePosition } from "@/shared/features/Framer";
-import { Button } from "@/shared/ui/Buttons";
-import { Input } from "@/shared/ui/Input";
+import { Button } from "@/shared/ui/primitive/Buttons";
+import { Input } from "@/shared/ui/primitive/Input";
 import { searchSearchVariants } from "../../contants";
 import { useFilterCtx } from "../hooks/useFilters";
 import { SortBy } from "./SortBy";

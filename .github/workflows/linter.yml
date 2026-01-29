@@ -9,6 +9,8 @@ jobs:
   linter:
     name: Run lint
     runs-on: ubuntu-latest
+    env: 
+      NEXT_PUBLIC_SERVER_URI: ${{ secrets.NEXT_PUBLIC_SERVER_URI }}
 
     steps:
       - uses: actions/checkout@v3

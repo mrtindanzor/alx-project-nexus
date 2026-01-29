@@ -2,7 +2,7 @@
 
 import { ChevronDown } from "lucide-react";
 import { Modal } from "@/shared/features/Modal";
-import { Button } from "@/shared/ui/Buttons";
+import { Button } from "@/shared/ui/primitive/Buttons";
 import { cn } from "@/shared/utils/cn";
 import type { CardWrapperProps } from "../../filters.types";
 import { useFilterCardHide } from "../hooks/useFilterCardHide";

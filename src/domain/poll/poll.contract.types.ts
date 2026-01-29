@@ -5,7 +5,13 @@ export type PollOptionProps = {
 
 export type PollProps = {
   title: string;
+  createdAt: Date;
   options: PollOptionProps[];
+};
+
+export type PaginatedPollProps = {
+  nextpage: number | null;
+  data: PollProps[];
 };
 
 export type PostPollProps = Pick<PollProps, "title"> & {

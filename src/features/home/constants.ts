@@ -6,7 +6,7 @@ import {
 import { Clock, Link, Shield } from "lucide-react";
 import type { FetureProps } from "./home.types";
 
-export const FEATURES = [
+export const FEATURES: FetureProps[] = [
   {
     icon: Clock,
     title: "Deadlines",
@@ -43,4 +43,4 @@ export const FEATURES = [
     description:
       "Fast, reliable, and spam-aware by design. Polls stay accessible, fair, and easy for everyone to participate.",
   },
-] satisfies FetureProps[];
+];

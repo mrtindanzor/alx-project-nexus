@@ -1,6 +1,6 @@
 import type { DragControls } from "framer-motion";
 import type { ComponentProps } from "react";
-import type { ButtonProps } from "@/shared/ui/Buttons";
+import type { ButtonProps } from "@/shared/ui/primitive/Buttons";
 import type { FramerAnimatePositionProps } from "../Framer";
 
 export type ModalContextProps = {
