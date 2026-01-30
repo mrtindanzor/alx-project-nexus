@@ -1,20 +1,36 @@
 "use client";
 
 import { ChartBarIcon, ClockIcon } from "@heroicons/react/24/solid";
-import { ArrowRight, Share2 } from "lucide-react";
-import { Button, Pill } from "@/shared/ui/primitive/Buttons";
+import { ArrowRight, Share2, ThumbsUp } from "lucide-react";
+import { Button, Pill, StyledLink } from "@/shared/ui/primitive/Buttons";
+import { ErrorCard } from "@/shared/ui/primitive/ErrorCard";
+import Spinner from "@/shared/ui/primitive/Spinner";
 import { cn } from "@/shared/utils/cn";
 import { renderText } from "@/shared/utils/textFormat";
 import { usePollVote } from "../poll.vote.hooks";
 import type { PollButtonProps, PollVoteCardProps } from "../poll-vote.types";
 
 export function PollVoteCard({ pollId }: PollVoteCardProps) {
-  const { title, time, options, selected, setSelected } = usePollVote({
+  const {
+    title,
+    time,
+    options,
+    selected,
+    setSelected,
+    onSubmit,
+    msgCtnRef,
+    formState: { error, success, message, submitting },
+    voted,
+  } = usePollVote({
     pollId,
   });
+  const VoteIcon = voted ? ThumbsUp : ArrowRight;
 
   return (
-    <form className="max-w-9/10 mx-auto py-4 px-4 md:max-w-3xl grid h-fit gap-y-8 rounded-md mt-5 border border-t-4 border-t-accent border-neutral/20 bg-secondary-900 drop-shadow-md">
+    <form
+      onSubmit={onSubmit}
+      className="mx-auto py-4 px-4 md:max-w-3xl grid h-fit gap-y-8 rounded-md mt-5 border border-t-4 border-t-accent border-neutral/20 bg-secondary-900 drop-shadow-md"
+    >
       <header>
         <h2 className="text-2xl mb-0.5 font-sans font-medium text-neutral/90 tracking-tight">
           {title}
@@ -35,10 +51,11 @@ export function PollVoteCard({ pollId }: PollVoteCardProps) {
         <ul className="grid gap-y-0.5">
           {options.map((option) => (
             <PollButton
-              key={option.answer}
+              {...option}
+              key={option._id}
               selected={selected}
               setSelected={setSelected}
-              answer={option.answer}
+              disabled={voted}
             />
           ))}
         </ul>
@@ -48,41 +65,62 @@ export function PollVoteCard({ pollId }: PollVoteCardProps) {
         <Button
           pad="lg"
           y="center"
-          variant="sky"
+          variant={!voted ? "sky" : "ghost-sky"}
           hover="none"
           className="gap-x-2 px-8 col"
           w="full"
           x="center"
+          disabled={voted || submitting}
         >
-          Vote
-          <ArrowRight className="size-4 stroke-3" />
+          {submitting ? (
+            <Spinner className="size-4 border-neutral border-t-transparent mx-5" />
+          ) : (
+            <>
+              {voted ? "Voted" : "Vote"}
+              <VoteIcon className="size-4 stroke-3" />
+            </>
+          )}
         </Button>
         <div className="grid grid-cols-2 gap-x-2 *:w-full sm:*:w-fit sm:flex sm:justify-between *:gap-x-1 w-full">
-          <Button x="center" y="center" pad="lg" hover="light">
-            <ChartBarIcon className="size-4" />
+          <StyledLink
+            href={`/poll/${pollId}`}
+            x="center"
+            y="center"
+            pad="lg"
+            hover="light"
+          >
+            <ChartBarIcon className="size-4 " />
             Show Results
-          </Button>
+          </StyledLink>
           <Button x="center" y="center" pad="lg" hover="light">
             <Share2 className="size-4" />
             Share
           </Button>
         </div>
       </footer>
+      <ErrorCard
+        ref={msgCtnRef}
+        message={message}
+        success={success}
+        error={error}
+      />
     </form>
   );
 }
 
 function PollButton({
   answer,
+  _id,
   selected,
   setSelected,
+  total: _t,
   className,
   ...props
 }: PollButtonProps) {
   return (
     <Button
       type="button"
-      onClick={() => setSelected(answer)}
+      onClick={() => setSelected(_id)}
       variant="none"
       hover="ghost-light"
       pad="lg"
@@ -96,8 +134,8 @@ function PollButton({
         pad="xs"
         x="center"
         y="center"
-        variant={selected === answer ? "sky" : "light"}
-        hover={selected === answer ? "sky" : "ghost-light"}
+        variant={selected === _id ? "sky" : "light"}
+        hover={selected === _id ? "sky" : "ghost-light"}
       >
         <span className="grid size-2 aspect-square! rounded-full bg-secondary-900"></span>
       </Pill>

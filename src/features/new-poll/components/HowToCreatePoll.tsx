@@ -1,3 +1,4 @@
+import { APP_NAME } from "@/shared/contants/app";
 import { AnimateScroll } from "@/shared/features/Framer";
 import { Pill } from "@/shared/ui/primitive/Buttons";
 import { CREATE_POLL_STEPS } from "../contants";
@@ -11,7 +12,7 @@ export function HowToCreatePoll() {
           Getting Started
         </h2>
         <h3 className="text-4xl text-center font-bold">
-          How to use Poll in simple steps
+          How to use {APP_NAME} in simple steps
         </h3>
 
         <p className="text-center text-neutral/60">

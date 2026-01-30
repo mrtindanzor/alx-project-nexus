@@ -15,14 +15,13 @@ export function ErrorCard({
   error,
   ...props
 }: ErrorCardProps) {
-  if (!message) return null;
-
   return (
     <div
       {...props}
       className={cn(
         success ? "bg-success/20" : error ? "bg-danger/80" : "",
         "grid text-white grid-cols-[auto_1fr] text-left items-center py-2 px-2 mt-1 text-sm gap-2 rounded",
+        !message && "hidden",
         className,
       )}
     >
