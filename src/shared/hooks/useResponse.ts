@@ -18,9 +18,13 @@ export type UpdateProps = {
 
 export type UseResponseProps<T> = {
   data?: T;
+  callSubmitted?: boolean;
 };
 
-export function useResponse<T>({ data }: UseResponseProps<T> = {}) {
+export function useResponse<T>({
+  data,
+  callSubmitted = true,
+}: UseResponseProps<T> = {}) {
   const formDataRef = useRef(data);
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>(null);
   const containerRef = useRef<HTMLElement>(null);
@@ -38,10 +42,13 @@ export function useResponse<T>({ data }: UseResponseProps<T> = {}) {
       setProgressMsg("");
 
       const ctn = containerRef.current;
+      console.log({ ctn });
       if (!(ctn instanceof HTMLElement)) return;
 
-      ctn.classList.add("scroll-mt-120");
-      ctn.scrollIntoView({ behavior: "smooth" });
+      requestAnimationFrame(() => {
+        ctn.classList.add("scroll-mt-50");
+        ctn.scrollIntoView({ behavior: "smooth" });
+      });
       setSubmitting(false);
     },
     [],
@@ -80,11 +87,11 @@ export function useResponse<T>({ data }: UseResponseProps<T> = {}) {
 
         await tryCatch(callback(formDataRef.current));
 
-        setSubmitting(false);
+        if (callSubmitted) setSubmitting(false);
         schClear();
       };
     },
-    [clsResponse, schClear],
+    [clsResponse, callSubmitted, schClear],
   );
 
   useEffect(() => {

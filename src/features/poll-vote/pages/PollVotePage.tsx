@@ -1,5 +1,5 @@
 import { LayoutWithBackButton } from "@/shared/layouts/components/server/LayoutWithBackButton";
-import { PollCard } from "@/shared/ui/PollCard";
+import { PollVoteHeader } from "../components/Header";
 import { PollVoteCard } from "../components/PollVoteCard";
 
 type PollVotePageProps = {
@@ -8,11 +8,11 @@ type PollVotePageProps = {
 
 export function PollVotePage({ pollId }: PollVotePageProps) {
   return (
-    <main className="pt-20 h-screen section">
+    <main className="py-20 min-h-screen section">
+      <PollVoteHeader />
       <LayoutWithBackButton>
         <PollVoteCard pollId={pollId} />
       </LayoutWithBackButton>
     </main>
   );
 }
-PollCard;

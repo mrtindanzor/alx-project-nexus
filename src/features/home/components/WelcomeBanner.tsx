@@ -1,4 +1,4 @@
-import { BarChart, ChartPie } from "lucide-react";
+import { ChartPie } from "lucide-react";
 import { FramerAnimatePosition } from "@/shared/features/Framer";
 import {
   StyledLink,
@@ -52,16 +52,6 @@ export function WelcomeBanner() {
         >
           <ChartPie />
           Create a Poll
-        </BannerButtons>
-
-        <BannerButtons
-          variant="outline"
-          hover="light"
-          href="/polls"
-          direction="30%"
-        >
-          <BarChart />
-          See live Polls
         </BannerButtons>
       </div>
     </section>

@@ -4,7 +4,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { notFound } from "next/navigation";
-import { fetchPoll, POLL_KEY } from "@/domain/poll";
+import { fetchPollVote, POLL_KEY } from "@/domain/poll";
 import { PollVotePage } from "@/features/poll-vote";
 import { tryCatch } from "@/shared/utils/tryCatch";
 
@@ -18,7 +18,7 @@ const qc = new QueryClient();
 
 export default async function Page({ params }: VotePageProps) {
   const { pollId } = await params;
-  const [poll] = await tryCatch(fetchPoll(pollId));
+  const [poll] = await tryCatch(fetchPollVote(pollId));
 
   if (!poll) return notFound();
 

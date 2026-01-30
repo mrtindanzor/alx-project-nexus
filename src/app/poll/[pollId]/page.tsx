@@ -4,8 +4,8 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { notFound } from "next/navigation";
-import { fetchPoll, POLL_KEY } from "@/domain/poll";
-import { PollVotePage } from "@/features/poll-vote";
+import { fetchPollResults, POLL_KEY } from "@/domain/poll";
+import { PollResultPage } from "@/features/poll-result";
 import { tryCatch } from "@/shared/utils/tryCatch";
 
 export const dynamicParams = true;
@@ -18,7 +18,7 @@ const qc = new QueryClient();
 
 export default async function Page({ params }: VotePageProps) {
   const { pollId } = await params;
-  const [poll] = await tryCatch(fetchPoll(pollId));
+  const [poll] = await tryCatch(fetchPollResults(pollId));
 
   if (!poll) return notFound();
 
@@ -26,7 +26,7 @@ export default async function Page({ params }: VotePageProps) {
 
   return (
     <HydrationBoundary state={dehydrate(qc)}>
-      <PollVotePage pollId={pollId} />
+      <PollResultPage pollId={pollId} />
     </HydrationBoundary>
   );
 }

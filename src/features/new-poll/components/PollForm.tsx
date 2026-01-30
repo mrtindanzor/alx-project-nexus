@@ -24,15 +24,13 @@ export function PollForm() {
   return (
     <form
       onSubmit={savePoll}
-      className="py-4 px-4 rounded-md bg-neutral/10 section max-w-xl outline-2 outline-muted-stone"
+      className="py-4 px-4 rounded-md bg-secondary-900 section max-w-xl"
     >
-      {message && (
-        <ErrorCard
-          ref={msgCtnRef}
-          {...{ error, message, success }}
-          className="mb-4"
-        />
-      )}
+      <ErrorCard
+        ref={msgCtnRef}
+        {...{ error, message, success }}
+        className="mb-4"
+      />
 
       {pollId && <SeePollLive pollId={pollId} />}
       <PollInput
@@ -54,7 +52,7 @@ export function PollForm() {
               onChange={(e) => setValue(e.target.value, "answer", index)}
               className="*:last:pr-8"
             />
-            {options.length > 1 && (
+            {options.length > 2 && (
               <CloseButton
                 className="absolute bg-transparent top-1/2 -translate-y-2/4 right-2"
                 close={() => removeOption(index)}
@@ -66,6 +64,7 @@ export function PollForm() {
           <Button
             type="button"
             y="center"
+            hover="light"
             className="ml-auto mt-2"
             onClick={addNewOption}
             rad="lg"
@@ -93,13 +92,14 @@ function SeePollLive({ pollId }: SeePollLiveProps) {
     <StyledLink
       href={`/poll/${pollId}`}
       className="gap-x-2 mt-2 mb-6 px-8"
-      variant="ghost-sky"
+      variant="sky"
+      hover="none"
       y="center"
       pad="lg"
       w="full"
       x="center"
     >
-      See Poll <ArrowRight />
+      See Live Poll <ArrowRight />
     </StyledLink>
   );
 }
@@ -119,7 +119,7 @@ function PollInput({ label, className, ...props }: PollInputProps) {
         type="text"
         variant="muted"
         {...props}
-        className="py-2.5! w-full"
+        className="py-2.5! w-full bg-secondary"
       />
     </label>
   );
