@@ -15,8 +15,8 @@ export function PollResultsButton({
     <div className="">
       <p className="grid grid-cols-[1fr_auto] gap-x-4 text-neutral/60">
         <span>{answer}</span>
-        <span title="Total votes for this option">
-          {width}% ({total} votes)
+        <span title="Total votes for this option" className="flex">
+          {width}% ({total} {total === 1 ? "vote" : "votes"})
         </span>
       </p>
 
