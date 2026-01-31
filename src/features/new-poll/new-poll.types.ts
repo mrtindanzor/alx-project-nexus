@@ -8,7 +8,3 @@ export type CreatePollStepProps = {
   title: string;
   description: string;
 };
-
-export type SeePollLiveProps = {
-  pollId: string;
-};

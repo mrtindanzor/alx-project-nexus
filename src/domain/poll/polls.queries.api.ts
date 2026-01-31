@@ -13,6 +13,7 @@ const pollsQuery = `#graphql
 
       data {
         title
+        type
         options {
           total
           answer
@@ -28,6 +29,7 @@ const pollVoteQuery = `#graphql
   query PollVoteQuery($pollId: String!){
     poll(pollId: $pollId) {
       title
+      type
       options { 
         _id
         answer

@@ -5,7 +5,7 @@ import { PollForm } from "../components/PollForm";
 
 export function CreatePollPage() {
   return (
-    <main className="pt-20 px-4 sm:px-6 bg-secondary">
+    <main className="pt-20 px-4 sm:px-6 bg-muted">
       <CreatePollHeader />
       <LayoutWithBackButton>
         <h1 className="text-4xl sm:text-5xl text-center font-bold">

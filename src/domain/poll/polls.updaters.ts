@@ -29,11 +29,11 @@ function updatePollResult(
   return {
     ...poll,
     options: poll.options.map((option) => {
-      if (option._id !== pollResults.optionId) return option;
+      if (!pollResults.options[option._id]) return option;
 
       return {
         ...option,
-        total: pollResults.total,
+        total: pollResults.options[option._id],
       };
     }),
   };

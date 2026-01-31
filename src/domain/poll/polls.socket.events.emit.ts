@@ -3,6 +3,6 @@ export type PollsEmitterEventsType = {
 };
 
 type EmitVoteEvent = (
-  data: { pollId: string; optionId: string },
+  data: { pollId: string; votesIds: string[] },
   cb: (payload: { error: boolean; message: string }) => void,
 ) => void;

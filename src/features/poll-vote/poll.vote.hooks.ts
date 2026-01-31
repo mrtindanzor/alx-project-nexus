@@ -12,9 +12,10 @@ type UsePollVote = {
 };
 
 export function usePollVote({ pollId }: UsePollVote) {
+  const [shareActive, setShareActive] = useState(false);
   const socket = usePollsSocket();
   const [voted, setVoted] = useState(false);
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState<string[]>([]);
   const queryClient = useQueryClient();
   const { data } = useQuery({
     queryKey: [...POLL_KEY, pollId],
@@ -34,15 +35,27 @@ export function usePollVote({ pollId }: UsePollVote) {
     setSubmitting,
     ...resProps
   } = useResponse({
-    data: { answer: selected, pollId, optionId: selected },
+    data: { pollId, votesIds: selected },
     callSubmitted: false,
   });
 
-  const { createdAt, ...pollDetails } = data || ({} as PollProps);
+  const { createdAt, type, ...pollDetails } = data || ({} as PollProps);
   const [time, setTime] = useState(formatToDaysAgo(createdAt));
 
+  const setVotes = useCallback(
+    (id: string) => {
+      setSelected((votes) => {
+        if (type === "single") return id !== votes[0] ? [id] : votes;
+
+        if (votes.includes(id)) return votes.filter((vote) => vote !== id);
+        return [...votes, id];
+      });
+    },
+    [type],
+  );
+
   const handleVote = useCallback(
-    async (data: { pollId: string; answer: string; optionId: string }) => {
+    async (data: { pollId: string; votesIds: string[] }) => {
       const [parsed, parsedError] = zodErrorFilter(pollVoteSchema, data);
 
       if (parsedError || !parsed)
@@ -76,12 +89,15 @@ export function usePollVote({ pollId }: UsePollVote) {
 
   return {
     time,
+    type,
     ...pollDetails,
     ...resProps,
     selected,
-    setSelected,
+    setVotes,
     onSubmit,
     formState,
     voted,
+    shareActive,
+    setShareActive,
   };
 }

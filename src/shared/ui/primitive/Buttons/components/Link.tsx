@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { cn } from "@/shared/utils/cn";
 import type { StyledLinkProps } from "../button.types";
 import { ButtonVariants } from "./Button";
 
@@ -18,18 +19,20 @@ export function StyledLink({
   return (
     <Link
       {...props}
-      className={ButtonVariants({
-        variant,
-        className,
-        hover,
-        hoverEffect,
-        effectTiming,
-        pad,
-        rad,
-        x,
-        y,
-        w,
-      })}
+      className={cn(
+        ButtonVariants({
+          variant,
+          className,
+          hover,
+          hoverEffect,
+          effectTiming,
+          pad,
+          rad,
+          x,
+          y,
+          w,
+        }),
+      )}
     />
   );
 }

@@ -1,4 +1,5 @@
-import { cn } from "lpm/utils/cn";
+import { cn } from "@/shared/utils/cn";
+
 import type { PillProps } from "../button.types";
 import { ButtonVariants } from "./Button";
 
