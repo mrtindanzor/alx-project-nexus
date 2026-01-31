@@ -1,7 +1,7 @@
 "use client";
 
-import { cn } from "lpm/utils/cn";
 import { X } from "lucide-react";
+import { cn } from "@/shared/utils/cn";
 import type { CloseButtonProps } from "../button.types";
 import { Button } from "./Button";
 

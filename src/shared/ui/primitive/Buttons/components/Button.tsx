@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { cn } from "lpm/utils/cn";
+import { cn } from "@/shared/utils/cn";
 import type { ButtonProps } from "../button.types";
 
 export const ButtonVariants = cva(

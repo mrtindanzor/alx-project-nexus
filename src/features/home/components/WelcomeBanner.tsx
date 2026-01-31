@@ -1,5 +1,4 @@
 import { ChartPie } from "lucide-react";
-import Sample from "@/assets/images/poll-results.png";
 import { FramerAnimatePosition } from "@/shared/features/Framer";
 import {
   StyledLink,
@@ -59,7 +58,7 @@ export function WelcomeBanner() {
         </div>
       </section>
       <MImage
-        url={Sample.src}
+        url="/images/poll-results.png"
         title="Poll results sample image"
         className="pointer-events-none select-none rounded-xl *:object-cover *:object-top-left bg-muted border-muted-stone mt-5 w-10 @xs:w-15 @sm:w-20 @lg:w-30 @xl:w-40 @2xl:w-60 @4xl:w-70 @6xl:w-100 h-full "
       />
