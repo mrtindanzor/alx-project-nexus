@@ -39,8 +39,8 @@ export function PollResultsCard({ pollId }: PollResultsCardProps) {
         ))}
       </ul>
 
-      <footer className="grid gap-y-2 gap-x-4 w-full sm:grid-cols-[auto_1fr]">
-        <div className="grid grid-cols-2 gap-x-2 *:w-full sm:*:w-fit sm:flex sm:justify-between *:gap-x-1 w-full">
+      <footer className="grid gap-y-2 gap-x-4 @container w-full sm:grid-cols-[auto_1fr]">
+        <div className="grid  @sm:grid-cols-2 gap-2 *:w-full sm:*:w-fit sm:flex sm:justify-between *:gap-x-1 w-full">
           <Pill x="center" variant="ghost-sky" hover="none" y="center" pad="lg">
             <SignalIcon className="size-6 stroke-1 animate-pulse" />
             Live results

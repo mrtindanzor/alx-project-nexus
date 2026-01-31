@@ -10,6 +10,7 @@ export type PollProps = {
   _id: string;
   title: string;
   createdAt: Date;
+  type: "multiple" | "single";
   options: PollOptionProps[];
 };
 
@@ -18,13 +19,12 @@ export type PaginatedPollProps = {
   data: PollProps[];
 };
 
-export type PostPollProps = Pick<PollProps, "title"> & {
-  options: (Pick<PollOptionProps, "answer"> & { id: string })[];
+export type PostPollProps = Pick<PollProps, "title" | "type"> & {
+  options: Omit<PollOptionProps, "total">[];
 };
 
 export type InfinitePollProps = InfiniteData<PaginatedPollProps>;
 export type PollResultProps = {
   pollId: string;
-  total: number;
-  optionId: string;
+  options: Record<string, number>;
 };

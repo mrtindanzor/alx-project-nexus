@@ -1,3 +1,4 @@
+import Sample from "@/assets/images/create-poll.png";
 import { AnimateScroll } from "@/shared/features/Framer";
 import { MImage } from "@/shared/ui/primitive/MImage";
 
@@ -43,9 +44,9 @@ export function Pitch() {
         }}
       >
         <MImage
-          url="/poll-create.png"
+          url={Sample.src}
           title="Poll"
-          className="border-4 pointer-events-none select-none rounded-xl z-1 bg-muted border-muted-stone my-10 h-120 "
+          className="pointer-events-none select-none overflow-hidden rounded-xl z-1 my-10 h-120 "
         />
       </AnimateScroll>
     </section>

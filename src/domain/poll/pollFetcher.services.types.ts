@@ -11,7 +11,7 @@ export type PollServices = {
 
 export type PollVoteQueryType = {
   data: {
-    poll: Pick<PollProps, "createdAt" | "title"> & {
+    poll: Omit<PollProps, "options"> & {
       options: Omit<PollProps["options"][number], "total">[];
     };
   };

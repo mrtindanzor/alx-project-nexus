@@ -3,16 +3,10 @@ import {
   FaceSmileIcon,
   SignalIcon,
 } from "@heroicons/react/24/outline";
-import { Clock, Link, Shield } from "lucide-react";
+import { Link, Shield } from "lucide-react";
 import type { FetureProps } from "./home.types";
 
 export const FEATURES: FetureProps[] = [
-  {
-    icon: Clock,
-    title: "Deadlines",
-    description:
-      "Set a deadline or keep polls open forever. You're in control—run quick time-boxed polls or long-living votes that evolve over time.",
-  },
   {
     icon: FaceSmileIcon,
     title: "Emoji Support",

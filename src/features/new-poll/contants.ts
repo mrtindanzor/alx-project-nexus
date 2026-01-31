@@ -4,7 +4,7 @@ export const CREATE_POLL_STEPS: CreatePollStepProps[] = [
   {
     title: "Fill out the form.",
     description:
-      "Create your poll by adding a clear title and multiple answer options. You can edit or update them anytime before sharing.",
+      "Create your poll by adding a clear title and multiple answer options.",
   },
   {
     title: "Invite participants.",
@@ -17,3 +17,5 @@ export const CREATE_POLL_STEPS: CreatePollStepProps[] = [
       "See live results update in real time as votes are submitted, giving you immediate insights.",
   },
 ];
+
+export const POLL_TYPES = ["multiple", "single"] as const;

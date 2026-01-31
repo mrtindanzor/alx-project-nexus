@@ -1,19 +1,23 @@
 "use client";
 
-import { ArrowRight, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 import { useId } from "react";
-import { Button, CloseButton, StyledLink } from "@/shared/ui/primitive/Buttons";
+import { Dropdown } from "@/shared/features/Dropdown";
+import { PollLinkClipboard } from "@/shared/features/PollLinkClipboard";
+import { Button, CloseButton } from "@/shared/ui/primitive/Buttons";
 import { ErrorCard } from "@/shared/ui/primitive/ErrorCard";
 import { Input } from "@/shared/ui/primitive/Input";
 import { cn } from "@/shared/utils/cn";
-import type { PollInputProps, SeePollLiveProps } from "../new-poll.types";
+import { toCapitalized } from "@/shared/utils/textFormat";
+import { POLL_TYPES } from "../contants";
+import type { PollInputProps } from "../new-poll.types";
 import { usePollForm } from "../poll.hooks";
 
 export function PollForm() {
   const {
     addNewOption,
     removeOption,
-    poll: { title, options },
+    poll: { title, options, type },
     setValue,
     savePoll,
     formState: { message, error, success },
@@ -24,15 +28,25 @@ export function PollForm() {
   return (
     <form
       onSubmit={savePoll}
-      className="py-4 px-4 rounded-md bg-secondary-900 section max-w-xl"
+      className="py-4 px-4 rounded-md grid h-fit space-y-4 bg-secondary-900 section max-w-xl"
     >
-      <ErrorCard
-        ref={msgCtnRef}
-        {...{ error, message, success }}
-        className="mb-4"
-      />
+      <ErrorCard ref={msgCtnRef} {...{ error, message, success }} />
 
-      {pollId && <SeePollLive pollId={pollId} />}
+      {pollId && (
+        <div className="bg-secondary grid gap-y-6 rounded-md px-4 py-8 mb-4 outline-2 outline-muted-stone">
+          <PollLinkClipboard
+            pollId={pollId}
+            slug="vote"
+            title="Vote page link"
+          />
+          <PollLinkClipboard
+            pollId={pollId}
+            slug="poll"
+            title="Results page link"
+          />
+        </div>
+      )}
+
       <PollInput
         label="Title"
         value={title}
@@ -41,15 +55,38 @@ export function PollForm() {
         variant="outline"
       />
 
+      <div className="grid gap-y-1 mt-4">
+        <span>Type</span>
+
+        <Dropdown
+          items={POLL_TYPES.map((type) => ({
+            title: `${toCapitalized(type)} Choice`,
+            value: type,
+            hover: "light",
+          }))}
+          title={`${toCapitalized(type)} Choice`}
+          setValue={(value) => setValue(value, "type")}
+          className="w-full"
+          buttonProps={{
+            pad: "lg",
+            variant: "ghost-light",
+            hover: "light",
+            rad: "lg",
+            className: "px-4 bg-secondary outline-2 outline-muted-stone",
+          }}
+          dropDownListClassName="bg-secondary drop-shadow-2xl outline-2 outline-muted-stone"
+        />
+      </div>
+
       <div className="mt-8">
         <span>Answer Options</span>
         {options.map((option, index) => (
-          <div className="relative" key={option.id}>
+          <div className="relative" key={option._id}>
             <PollInput
               label=""
               value={option.answer}
               placeholder={`Option ${index + 1}`}
-              onChange={(e) => setValue(e.target.value, "answer", index)}
+              onChange={(e) => setValue(e.target.value, "options", index)}
               className="*:last:pr-8"
             />
             {options.length > 2 && (
@@ -84,23 +121,6 @@ export function PollForm() {
         Create poll
       </Button>
     </form>
-  );
-}
-
-function SeePollLive({ pollId }: SeePollLiveProps) {
-  return (
-    <StyledLink
-      href={`/poll/${pollId}`}
-      className="gap-x-2 mt-2 mb-6 px-8"
-      variant="sky"
-      hover="none"
-      y="center"
-      pad="lg"
-      w="full"
-      x="center"
-    >
-      See Live Poll <ArrowRight />
-    </StyledLink>
   );
 }
 
