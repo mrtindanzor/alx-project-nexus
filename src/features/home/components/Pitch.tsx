@@ -1,6 +1,6 @@
-import Sample from "@/assets/images/create-poll.png";
 import { AnimateScroll } from "@/shared/features/Framer";
 import { MImage } from "@/shared/ui/primitive/MImage";
+import Sample from "../../../assets/images/create-poll.png";
 
 export function Pitch() {
   return (

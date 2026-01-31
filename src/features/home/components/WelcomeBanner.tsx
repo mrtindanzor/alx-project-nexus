@@ -1,5 +1,4 @@
 import { ChartPie } from "lucide-react";
-import Sample from "@/assets/images/poll-results.png";
 import { FramerAnimatePosition } from "@/shared/features/Framer";
 import {
   StyledLink,
@@ -7,6 +6,7 @@ import {
 } from "@/shared/ui/primitive/Buttons";
 import { MImage } from "@/shared/ui/primitive/MImage";
 import { cn } from "@/shared/utils/cn";
+import Sample from "../../../assets/images/poll-results.png";
 
 export function WelcomeBanner() {
   return (
