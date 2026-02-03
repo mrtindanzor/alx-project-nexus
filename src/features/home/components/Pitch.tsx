@@ -3,7 +3,7 @@ import { MImage } from "@/shared/ui/primitive/MImage";
 
 export function Pitch() {
   return (
-    <section className="section max-w-xl min-h-screen space-y-2">
+    <section className="section max-w-2xl min-h-screen space-y-2">
       <h2 className="text-5xl text-center text-accent font-bold">
         Trusted by users worldwide.
       </h2>
@@ -45,9 +45,14 @@ export function Pitch() {
         <MImage
           url="/images/create-poll.png"
           title="Poll"
-          className="pointer-events-none select-none overflow-hidden rounded-xl z-1 my-10 h-120 "
+          className="pointer-events-none select-none overflow-hidden rounded-xl mb-10 z-1 h-120 "
         />
       </AnimateScroll>
+      <MImage
+        url="/images/poll-results.png"
+        title="Poll results sample image"
+        className="pointer-events-none select-none overflow-hidden rounded-xl z-1 h-80"
+      />
     </section>
   );
 }
