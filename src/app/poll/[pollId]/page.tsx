@@ -8,7 +8,7 @@ import { fetchPollResults, POLL_KEY } from "@/domain/poll";
 import { PollResultPage } from "@/features/poll-result";
 import { tryCatch } from "@/shared/utils/tryCatch";
 
-export const dynamicParams = true;
+export const runtime = "edge";
 
 type VotePageProps = {
   params: Promise<{ pollId: string }>;
