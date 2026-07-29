@@ -1,3 +1,3 @@
-import { CreatePollPage } from "@/features/new-poll";
+import { CreatePollPage } from "@/screens/new-poll";
 
 export default CreatePollPage;

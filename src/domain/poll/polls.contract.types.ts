@@ -1,30 +1,24 @@
-import type { InfiniteData } from "@tanstack/react-query";
-
 export type PollOptionProps = {
   total: number;
   answer: string;
   _id: string;
 };
 
-export type PollProps = {
+export type PollType = {
   _id: string;
+  id: string;
   title: string;
   createdAt: Date;
   type: "multiple" | "single";
   options: PollOptionProps[];
 };
 
-export type PaginatedPollProps = {
-  nextpage: number | null;
-  data: PollProps[];
-};
-
-export type PostPollProps = Pick<PollProps, "title" | "type"> & {
+export type CreatePollDTO = Pick<PollProps, "title" | "type"> & {
   options: Omit<PollOptionProps, "total">[];
 };
 
-export type InfinitePollProps = InfiniteData<PaginatedPollProps>;
-export type PollResultProps = {
-  pollId: string;
-  options: Record<string, number>;
+export type PollProps = PollType;
+
+export type PostPollProps = Pick<PollProps, "title" | "type"> & {
+  options: Omit<PollOptionProps, "total">[];
 };

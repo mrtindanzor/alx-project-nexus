@@ -1,3 +1,6 @@
+import { fetchPollVote, POLL_KEY } from "@/domain/poll";
+import { PollVotePage } from "@/screens/poll-vote";
+import { tryCatch } from "@/shared/utils/tryCatch";
 import {
   dehydrate,
   HydrationBoundary,
@@ -6,9 +9,6 @@ import {
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { cache } from "react";
-import { fetchPollVote, POLL_KEY } from "@/domain/poll";
-import { PollVotePage } from "@/features/poll-vote";
-import { tryCatch } from "@/shared/utils/tryCatch";
 
 export const runtime = "edge";
 

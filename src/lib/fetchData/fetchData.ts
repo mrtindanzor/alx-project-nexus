@@ -1,133 +1,100 @@
-/** biome-ignore-all lint/style/noNonNullAssertion: assert data is not null by runing our own checks */
-
-import type { AxiosResponse } from "axios";
-import type { ZodType } from "zod";
 import { fe } from "@/shared/utils/fe";
-import {
-  type fetchResponseNoData,
-  responseUtil,
-} from "@/shared/utils/response";
+import { responseUtil } from "@/shared/utils/response";
 import { tryCatch } from "@/shared/utils/tryCatch";
-import { zodErrorFilter } from "@/shared/utils/zodErrorFilter";
+import type { AxiosResponse } from "axios";
 import { axiosInstance } from "./axios";
+
 import type {
   ErrorCode,
   FetchDataProps,
-  FetchStatus,
-  GetAxoisInstanceProps,
+  FetchingStatus,
   ServerResponse,
   SuccessCode,
 } from "./fetchData.types";
 
-export async function fetchData<T>(payload: FetchDataProps) {
-  const localPayload = payload;
+export class FetchData<T> {
+  private status: FetchingStatus = "idle";
+  private privateData: T | null = null;
+  private error = "";
+  private message = "";
 
-  let status: FetchStatus = "idle";
-  let data: T | null = null;
-  let error: string | null = null;
-  let message: string | null = null;
+  statusCode: ErrorCode | SuccessCode = 400;
 
-  let statusCode: ErrorCode | SuccessCode | null = null;
+  constructor(private localPayload: FetchDataProps) {}
 
-  async function fetch<Schema extends ZodType>(
-    validator?: Schema,
-    axiosConfig: GetAxoisInstanceProps = {},
-  ) {
-    if (status !== "idle") return;
+  async fetch() {
+    if (this.status !== "idle") return;
 
-    if (validator) {
-      const [data, validatorErr] = zodErrorFilter(
-        validator,
-        localPayload.payload,
-      );
+    const { uri, method = "post", payload } = this.localPayload;
+    this.status = "loading";
 
-      if (error || !data) {
-        error = validatorErr || "Form validation failed";
-        status = "error";
-        statusCode = 400;
-        return;
-      }
+    const axios = axiosInstance();
 
-      if (data) localPayload.payload = data;
-    }
-
-    const { uri, method = "post", payload } = localPayload;
-    status = "loading";
-
-    const axios = axiosInstance(axiosConfig);
-
-    let promise: Promise<AxiosResponse<ServerResponse<T>, unknown>>;
+    let promise: Promise<AxiosResponse<ServerResponse & T>>;
 
     switch (method) {
       case "delete":
       case "get": {
-        promise = axios[method]<ServerResponse<T>>(uri, {
-          withCredentials: true,
-        });
+        promise = axios[method](uri);
         break;
       }
       default:
-        promise = axios[method]<ServerResponse<T>>(uri, payload, {
-          withCredentials: true,
-        });
+        promise = axios[method](uri, payload);
     }
 
-    const [res, fetchErr] = await tryCatch(promise);
+    const [result, error] = await tryCatch(promise);
 
-    status = "error";
-    statusCode = 400;
+    this.status = "error";
+    this.statusCode = 400;
 
-    if (!res || fetchErr) {
-      error = fe(fetchErr ?? "Something went wrong, failed to fetch data.");
+    if (error) {
+      this.error = fe(error);
       return;
     }
 
-    if (![200, 201].includes(res.data.status)) {
-      error = fe(res.data.message);
+    if (![200, 201].includes(result.data.data.status)) {
+      this.error = fe(result.data.data.message);
       return;
     }
 
-    const { message: resMessage, status: _s, ...rest } = res.data;
+    const { message: resMessage, status: _s, ...rest } = result.data.data;
 
-    statusCode = res.data.status;
-    status = "success";
-    message = resMessage;
+    this.statusCode = result.data.data.status;
+    this.status = "success";
+    this.message = resMessage;
 
-    data = rest as T;
+    this.privateData = rest as T;
   }
 
-  return {
-    fetch,
-    isError() {
-      return status === "error";
-    },
-    isSuccess() {
-      return status === "success";
-    },
-    get message(): string {
-      if (!message) throw Error("No success message exists");
+  isError() {
+    return this.status === "error";
+  }
 
-      return message;
-    },
-    get error(): string {
-      if (!error) throw Error("No error exists");
-      return error;
-    },
-    get data(): T {
-      if (!data) throw Error("Data not available, call fetch first");
+  isSuccess() {
+    return this.status === "success";
+  }
 
-      return data;
-    },
-    get dataWithStatus() {
-      if (data) return responseUtil(message!, "success", data!);
+  get data() {
+    if (!this.privateData)
+      throw Error(this.error ?? "Data not available, call fetch first");
 
-      return responseUtil(error!, "error");
-    },
-    get fetchStatus(): fetchResponseNoData {
-      if (data) return responseUtil(message!, "success");
+    return this.privateData;
+  }
 
-      return responseUtil(error!, "error");
-    },
-    statusCode,
-  };
+  get dataWithStatus() {
+    if (this.privateData)
+      return responseUtil(this.message, "success", this.privateData);
+
+    return responseUtil(this.error, "error");
+  }
+
+  get fetchStatus() {
+    if (this.status === "success") return responseUtil(this.message, "success");
+
+    return responseUtil(this.error, "error");
+  }
+}
+
+export function createFetchDataClient() {
+  return <T>(payload: FetchDataProps) => new FetchData<T>(payload);
 }

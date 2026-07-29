@@ -1,4 +1,4 @@
-import { type FetchQueryProps, fetchQuery } from "@/lib/fetchData";
+import { type FetchQueryProps, fetchQuery } from "@/lib/fetchData_old";
 export function nextQueryFetch<T>(payload: FetchQueryProps) {
   const fetcher = fetchQuery<T>(payload);
 

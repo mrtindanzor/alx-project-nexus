@@ -1,28 +1,24 @@
-import type { AxiosRequestConfig } from "axios";
+import type { FetchData } from "./fetchData"
 
-export type FetchStatus = "idle" | "loading" | "success" | "error";
+export type FetchingStatus = "idle" | "loading" | "success" | "error"
+export type ErrorCode = 400 | 401 | 403 | 404 | 500
+export type SuccessCode = 200 | 201
 
-export type FetchDataProps<Payload = object | undefined> = {
-  payload?: Payload;
-  uri: string;
-  method?: "post" | "put" | "delete" | "patch" | "get";
-};
+export type FetchStatus = {
+  success: boolean
+  error: boolean
+  message: string
+}
 
-export type FetchQueryProps = {
-  query: string;
-  variables?: object;
-};
+export type ServerResponse = {
+  message: string
+  status: ErrorCode | SuccessCode
+}
 
-export type GetAxoisInstanceProps = {
-  headers?: AxiosRequestConfig["headers"];
-};
+export type FetchDataProps = {
+  uri: string
+  method?: "post" | "put" | "delete" | "patch" | "get"
+  payload?: Record<string, unknown>
+}
 
-export type ServerResponse<T> = T & {
-  rateExceeded?: boolean;
-  message: string;
-  status: ErrorCode | SuccessCode;
-};
-
-export type ErrorCode = 500 | 400 | 403 | 404;
-
-export type SuccessCode = 200 | 201;
+export type FetchDataType = <T>(props: FetchDataProps) => FetchData<T>

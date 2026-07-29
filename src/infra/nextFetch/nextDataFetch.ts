@@ -1,5 +1,5 @@
+import { type FetchDataProps, fetchData } from "@/lib/fetchData_old";
 import type { ZodType } from "zod";
-import { type FetchDataProps, fetchData } from "@/lib/fetchData";
 
 export async function nextDataFetch<T>(payload: FetchDataProps) {
   const fetcher = await fetchData<T>(payload);

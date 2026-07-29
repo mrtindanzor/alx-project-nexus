@@ -1,3 +1,3 @@
-import { PollNotFound } from "@/features/components/NotFound";
+import { PollNotFound } from "@/shared/ui/NotFound";
 
 export default PollNotFound;
