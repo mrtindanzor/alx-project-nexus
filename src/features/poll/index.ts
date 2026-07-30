@@ -6,4 +6,4 @@ export * from "./poll.validators";
 export type * from "./polls.contract.types";
 export type * from "./polls.socket.events.emit";
 export type * from "./polls.socket.events.handler";
-export { useVote } from "./polls.useVote";
+export * from "./polls.useVote";
