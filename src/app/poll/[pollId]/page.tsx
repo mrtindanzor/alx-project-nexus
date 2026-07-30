@@ -1,14 +1,9 @@
-import { fetchPollResults, POLL_KEY } from "@/domain/poll";
-import { PollResultPage } from "@/screens/poll-result";
-import { tryCatch } from "@/shared/utils/tryCatch";
-import {
-  dehydrate,
-  HydrationBoundary,
-  QueryClient,
-} from "@tanstack/react-query";
+import { pollQuery } from "@/features/poll";
+import { PollResultPage } from "@/screens/result";
+import { HydrationProvider } from "@/shared/ui/primitive/HydationProvider";
+import { QueryClient } from "@tanstack/react-query";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { cache } from "react";
 
 export const runtime = "edge";
 
@@ -16,37 +11,32 @@ type VotePageProps = {
   params: Promise<{ pollId: string }>;
 };
 
-const fetchPoll = cache(async (pollId: string) => {
-  const [poll] = await tryCatch(fetchPollResults(pollId));
-  return poll;
-});
-
 export async function generateMetadata({
   params,
 }: VotePageProps): Promise<Metadata> {
   const { pollId } = await params;
-  const poll = await fetchPoll(pollId);
+  const qc = new QueryClient();
+  const query = pollQuery(pollId);
 
-  if (!poll) return { title: "Consensus - PollMaker" };
+  const poll = await qc.fetchQuery(query);
 
   return {
     title: `Consensus - ${poll.title}`,
   };
 }
 
-const qc = new QueryClient();
-
 export default async function Page({ params }: VotePageProps) {
   const { pollId } = await params;
-  const poll = await fetchPoll(pollId);
+  const qc = new QueryClient();
+  const query = pollQuery(pollId);
+
+  const poll = await qc.fetchQuery(query);
 
   if (!poll) return notFound();
 
-  qc.setQueryData([...POLL_KEY, pollId], poll);
-
   return (
-    <HydrationBoundary state={dehydrate(qc)}>
+    <HydrationProvider queries={[{ queryKey: query.queryKey, data: poll }]}>
       <PollResultPage pollId={pollId} />
-    </HydrationBoundary>
+    </HydrationProvider>
   );
 }

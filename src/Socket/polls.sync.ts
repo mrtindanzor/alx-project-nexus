@@ -1,16 +1,16 @@
 "use client";
 
-import { useQueryClient } from "@tanstack/react-query";
-import { useEffect } from "react";
 import {
   type InfinitePollProps,
   POLL_KEY,
-  POLLS_KEY_PAGINATED,
   type PollProps,
   type PollResultProps,
+  POLLS_KEY_PAGINATED,
   pollsStateUpdater,
-} from "@/domain/poll";
+} from "@/features/poll";
 import { usePollsSocket } from "@/hooks/usePollsSocket";
+import { useQueryClient } from "@tanstack/react-query";
+import { useEffect } from "react";
 
 export function PollsListener() {
   const socket = usePollsSocket();

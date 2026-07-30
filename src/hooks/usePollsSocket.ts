@@ -1,11 +1,11 @@
 "use client";
-import { useMemo } from "react";
-import type { Socket } from "socket.io-client";
 import type {
   PollsEmitterEventsType,
   PollsEventsHandlerType,
-} from "@/domain/poll";
+} from "@/features/poll";
 import { useSocket } from "@/Socket";
+import { useMemo } from "react";
+import type { Socket } from "socket.io-client";
 
 export function usePollsSocket() {
   const socket = useSocket();

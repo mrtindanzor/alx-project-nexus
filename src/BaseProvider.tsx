@@ -1,14 +1,14 @@
 "use client";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import type { PropsWithChildren } from "react";
+import { type PropsWithChildren, useState } from "react";
+import { RouteChangeProvider } from "./shared/features/RouteChange";
 import { PollsListener } from "./Socket/polls.sync";
 import { SocketProvider } from "./Socket/Socket";
-import { RouteChangeProvider } from "./shared/features/RouteChange";
-
-const qc = new QueryClient();
 
 export function BaseProvider({ children }: PropsWithChildren) {
+  const [qc] = useState(() => new QueryClient());
+
   return (
     <QueryClientProvider client={qc}>
       <SocketProvider>

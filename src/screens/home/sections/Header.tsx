@@ -1,4 +1,4 @@
-import { Logo } from "@/shared/layouts/components/server/Logo";
+import { Logo } from "@/shared/layouts/components/Logo";
 import { StyledLink } from "@/shared/ui/primitive/Buttons";
 
 export function HomeHeader() {

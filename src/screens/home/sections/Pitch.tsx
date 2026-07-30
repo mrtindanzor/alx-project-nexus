@@ -1,5 +1,5 @@
 import { AnimateScroll } from "@/shared/features/Framer";
-import { MImage } from "@/shared/ui/primitive/MImage";
+import { Image } from "@/shared/ui/primitive/Image";
 
 export function Pitch() {
   return (
@@ -42,13 +42,13 @@ export function Pitch() {
           },
         }}
       >
-        <MImage
+        <Image
           url="/images/create-poll.png"
           title="Poll"
           className="pointer-events-none select-none overflow-hidden rounded-xl mb-10 z-1 h-120 "
         />
       </AnimateScroll>
-      <MImage
+      <Image
         url="/images/poll-results.png"
         title="Poll results sample image"
         className="pointer-events-none select-none overflow-hidden rounded-xl z-1 h-80"
