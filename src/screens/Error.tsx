@@ -1,5 +1,6 @@
 import { Home } from "lucide-react";
 import { LayoutWithBackButton } from "@/shared/layouts/components/LayoutWithBackButton";
+import { routes } from "@/shared/routes/routes";
 import { Button, StyledLink } from "@/shared/ui/primitive/Buttons";
 
 type ErrorPageProps = {
@@ -17,7 +18,7 @@ export function ErrorPage({ error: { message }, reset }: ErrorPageProps) {
           <div className="grid gap-x-4 gap-y-2 @md:grid-cols-2">
             <StyledLink
               hover="light"
-              href="/"
+              href={routes.home}
               w="full"
               x="center"
               pad="xl"

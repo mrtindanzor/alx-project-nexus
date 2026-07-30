@@ -1,4 +1,5 @@
 import { Logo } from "@/shared/layouts/components/Logo";
+import { routes } from "@/shared/routes/routes";
 import { StyledLink } from "@/shared/ui/primitive/Buttons";
 
 export function HomeHeader() {
@@ -8,7 +9,7 @@ export function HomeHeader() {
         <Logo />
 
         <StyledLink
-          href="/new-poll"
+          href={routes.create}
           pad="xl"
           variant="light"
           rad="lg"
