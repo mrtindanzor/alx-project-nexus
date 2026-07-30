@@ -10,6 +10,7 @@ import {
 } from "@/shared/features/Framer";
 import { PollLinkClipboard } from "@/shared/features/PollLinkClipboard";
 import { useAutoHide } from "@/shared/hooks/useAutoHide";
+import { routes } from "@/shared/routes/routes";
 import {
   Button,
   type ButtonProps,
@@ -103,7 +104,7 @@ export function VoteCard({ pollId }: PollVoteCardProps) {
         </Button>
         <div className="grid @sm:grid-cols-[auto_1fr] mt-2 @sm:mt-0 gap-y-2 gap-x-2 *:w-full sm:*:w-fit sm:flex *:gap-x-1 w-full">
           <StyledLink
-            href={`/poll/${pollId}`}
+            href={routes.result(pollId)}
             x="center"
             y="center"
             pad="lg"

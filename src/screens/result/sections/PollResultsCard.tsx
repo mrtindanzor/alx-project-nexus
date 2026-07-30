@@ -4,6 +4,7 @@ import { SignalIcon } from "@heroicons/react/24/outline";
 import { ClockIcon } from "@heroicons/react/24/solid";
 import { ArrowLeft } from "lucide-react";
 import { usePollResults } from "@/features/poll/poll.usePollResult";
+import { routes } from "@/shared/routes/routes";
 import {
   type ButtonProps,
   Pill,
@@ -52,7 +53,7 @@ export function PollResultsCard({ pollId }: PollResultsCardProps) {
             Live results
           </Pill>
           <StyledLink
-            href={`/vote/${pollId}`}
+            href={routes.vote(pollId)}
             x="center"
             y="center"
             pad="lg"

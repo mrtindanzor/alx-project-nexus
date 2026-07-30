@@ -1,5 +1,6 @@
 import { Home } from "lucide-react";
 import { LayoutWithBackButton } from "@/shared/layouts/components/LayoutWithBackButton";
+import { routes } from "@/shared/routes/routes";
 import { StyledLink } from "@/shared/ui/primitive/Buttons";
 
 export function PollNotFound() {
@@ -13,7 +14,7 @@ export function PollNotFound() {
           </p>
           <StyledLink
             hover="light"
-            href="/"
+            href={routes.home}
             w="full"
             x="center"
             pad="xl"
