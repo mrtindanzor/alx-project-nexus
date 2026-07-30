@@ -80,7 +80,7 @@ export function PollForm() {
       <div className="mt-8">
         <span>Answer Options</span>
         {options.map((option, index) => (
-          <div className="relative" key={option._id}>
+          <div className="relative" key={option.id}>
             <PollInput
               label=""
               value={option.answer}

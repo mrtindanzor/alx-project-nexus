@@ -52,14 +52,14 @@ export class FetchData<T> {
       return;
     }
 
-    if (![200, 201].includes(result.data.data.status)) {
-      this.error = fe(result.data.data.message);
+    if (![200, 201].includes(result.data.status)) {
+      this.error = fe(result.data.message);
       return;
     }
 
-    const { message: resMessage, status: _s, ...rest } = result.data.data;
+    const { message: resMessage, status: _s, ...rest } = result.data;
 
-    this.statusCode = result.data.data.status;
+    this.statusCode = result.data.status;
     this.status = "success";
     this.message = resMessage;
 

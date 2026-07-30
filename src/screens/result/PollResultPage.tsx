@@ -1,6 +1,6 @@
 import { LayoutWithBackButton } from "@/shared/layouts/components/LayoutWithBackButton";
-import { PollResultsHeader } from "../sections/Header";
-import { PollResultsCard } from "../sections/PollResultsCard";
+import { PollResultsHeader } from "./sections/Header";
+import { PollResultsCard } from "./sections/PollResultsCard";
 
 type PollResultPageProps = {
   pollId: string;

@@ -1,1 +1,1 @@
-export { PollResultPage } from "./pages/PollResultPage";
+export { PollResultPage } from "./PollResultPage";

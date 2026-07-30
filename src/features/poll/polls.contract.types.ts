@@ -15,7 +15,7 @@ export type PollType = {
 };
 
 export type CreatePollDTO = Pick<PollType, "title" | "type"> & {
-  options: Pick<PollOptionProps, "answer">[];
+  options: Pick<PollOptionProps, "answer" | "id">[];
 };
 
 export type PollResults = Pick<PollType, "options" | "title"> & {

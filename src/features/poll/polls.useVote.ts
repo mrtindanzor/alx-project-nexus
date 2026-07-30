@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useCallback, useLayoutEffect, useState } from "react";
-import { type PollProps, pollQuery } from "@/features/poll";
+import { type PollType, pollQuery } from "@/features/poll";
 import { usePollsSocket } from "@/hooks/usePollsSocket";
 import { useResponse } from "@/shared/hooks/useResponse";
 import { fe } from "@/shared/utils/fe";
@@ -37,7 +37,7 @@ export function useVote({ pollId }: UsePollVote) {
     callSubmitted: false,
   });
 
-  const { createdAt, type, ...pollDetails } = data || ({} as PollProps);
+  const { createdAt, type, ...pollDetails } = data || ({} as PollType);
   const [time, setTime] = useState(formatToDaysAgo(createdAt));
 
   const setVotes = useCallback(

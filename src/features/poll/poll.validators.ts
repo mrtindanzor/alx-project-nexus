@@ -17,6 +17,7 @@ export const createPollValidator = z.object(
             answer: z
               .string("Poll answer must be sentence.")
               .min(1, "An answer was not provided for a poll option"),
+            id: z.string(),
           },
           "Add answers for the poll.",
         ),

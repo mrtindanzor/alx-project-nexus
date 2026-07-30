@@ -1,7 +1,7 @@
-import type { PollResultProps } from "./polls.contract.types";
+import type { PollResults } from "./polls.contract.types";
 
 export type PollsEventsHandlerType = {
   "live-results": EmitVoteResults;
 };
 
-type EmitVoteResults = (payload: PollResultProps) => void;
+type EmitVoteResults = (payload: PollResults) => void;

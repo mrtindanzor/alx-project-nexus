@@ -3,10 +3,12 @@ import { type CreatePollDTO, pollService } from "@/features/poll";
 import { useResponse } from "@/shared/hooks/useResponse";
 import { createPollValidator } from "./poll.validators";
 
+const newOption = () => ({ answer: "", id: crypto.randomUUID() });
+
 const defaultPoll = (): CreatePollDTO => ({
   title: "",
   type: "single",
-  options: [{ answer: "" }, { answer: "" }],
+  options: [newOption(), newOption()],
 });
 
 export function useCreatePoll() {
@@ -20,7 +22,7 @@ export function useCreatePoll() {
   const addNewOption = useCallback(() => {
     setPoll((poll) => ({
       ...poll,
-      options: [...poll.options, { answer: "" }],
+      options: [...poll.options, newOption()],
     }));
   }, []);
 

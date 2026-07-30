@@ -33,4 +33,6 @@ export function PollsListener() {
       socket.off("live-results", updatePolls);
     };
   }, [socket, qc]);
+
+  return null;
 }
