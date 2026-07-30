@@ -8,12 +8,13 @@
   "files": {
     "ignoreUnknown": true,
     "includes": [
-      "**",
+      "**/*",
       "!node_modules",
-      "!.next",
       "!dist",
       "!build",
-      "!lpm.config.json"
+      "!.wrangler",
+      "!.output",
+      "!src/routeTree.gen.ts"
     ]
   },
   "formatter": {
@@ -30,7 +31,6 @@
       }
     },
     "domains": {
-      "next": "recommended",
       "react": "recommended"
     }
   },

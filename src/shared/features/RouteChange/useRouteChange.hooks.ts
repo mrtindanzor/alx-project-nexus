@@ -1,7 +1,6 @@
-"use client";
-
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useContext, useEffect, useMemo } from "react";
+import { useRouter } from "@tanstack/react-router";
+import { useContext } from "react";
+import { routes } from "@/shared/routes/routes";
 import { RouteChangeContext } from "./RouteChange";
 
 export function useRouteChangeCtx() {
@@ -12,39 +11,20 @@ export function useRouteChangeCtx() {
   return ctx;
 }
 
-export function useRouteChangeListener() {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const { routeHistoryRef } = useRouteChangeCtx();
-
-  const url = useMemo(() => {
-    const search = searchParams.toString();
-    return `${pathname}${search ? `?${search}` : ""}`;
-  }, [searchParams, pathname]);
-
-  useEffect(() => {
-    routeHistoryRef.current.unshift(url);
-  }, [url, routeHistoryRef]);
-}
+export function useRouteChangeListener() {}
 
 export function useRouteChange() {
   const router = useRouter();
-  const { routeHistoryRef } = useRouteChangeCtx();
 
-  const goBack = useCallback(
-    (path?: string) => {
-      routeHistoryRef.current.shift();
-      if (path) return router.push(path);
-
-      const backPage = routeHistoryRef.current[0];
-      routeHistoryRef.current.shift();
-
-      return router.push(backPage);
-    },
-    [router, routeHistoryRef],
-  );
+  const handleBack = () => {
+    if (window.history.length <= 1) {
+      router.navigate({ href: routes.home });
+    } else {
+      router.history.back();
+    }
+  };
 
   return {
-    goBack,
+    goBack: handleBack,
   };
 }

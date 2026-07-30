@@ -10,7 +10,7 @@ import type {
 import { useRouteChange } from "./useRouteChange.hooks";
 
 export function BackButton({
-  backUrl,
+  backUrl: _b,
   onClick,
   hoverEffect = "from-left",
   ...props
@@ -22,7 +22,7 @@ export function BackButton({
       {...props}
       hoverEffect={hoverEffect}
       onClick={(e) => {
-        goBack(backUrl);
+        goBack();
         onClick?.(e);
       }}
     />
