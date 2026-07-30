@@ -1,5 +1,5 @@
-import { POLL_TYPES } from "@/features/poll/poll.contants";
 import { z } from "zod";
+import { POLL_TYPES } from "@/features/poll/poll.contants";
 
 export const createPollValidator = z.object(
   {

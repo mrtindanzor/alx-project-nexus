@@ -1,10 +1,10 @@
+import { useQuery } from "@tanstack/react-query";
+import { useCallback, useLayoutEffect, useState } from "react";
 import { type PollProps, pollQuery } from "@/features/poll";
 import { usePollsSocket } from "@/hooks/usePollsSocket";
 import { useResponse } from "@/shared/hooks/useResponse";
 import { fe } from "@/shared/utils/fe";
 import { formatToDaysAgo } from "@/shared/utils/textFormat";
-import { useQuery } from "@tanstack/react-query";
-import { useCallback, useLayoutEffect, useState } from "react";
 import { voteOnPollValidator } from "./poll.validators";
 
 type UsePollVote = {

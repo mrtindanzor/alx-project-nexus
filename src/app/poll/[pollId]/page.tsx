@@ -1,9 +1,9 @@
-import { pollQuery } from "@/features/poll";
-import { PollResultPage } from "@/screens/result";
-import { HydrationProvider } from "@/shared/ui/primitive/HydationProvider";
 import { QueryClient } from "@tanstack/react-query";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { pollQuery } from "@/features/poll";
+import { PollResultPage } from "@/screens/result";
+import { HydrationProvider } from "@/shared/ui/primitive/HydationProvider";
 
 export const runtime = "edge";
 

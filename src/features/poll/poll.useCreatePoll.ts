@@ -1,6 +1,6 @@
+import { useCallback, useState } from "react";
 import { type CreatePollDTO, pollService } from "@/features/poll";
 import { useResponse } from "@/shared/hooks/useResponse";
-import { useCallback, useState } from "react";
 import { createPollValidator } from "./poll.validators";
 
 const defaultPoll = (): CreatePollDTO => ({

@@ -1,5 +1,8 @@
 "use client";
 
+import { SignalIcon } from "@heroicons/react/24/outline";
+import { ClockIcon } from "@heroicons/react/24/solid";
+import { ArrowLeft } from "lucide-react";
 import { usePollResults } from "@/features/poll/poll.usePollResult";
 import {
   type ButtonProps,
@@ -8,9 +11,6 @@ import {
 } from "@/shared/ui/primitive/Buttons";
 import { cn } from "@/shared/utils/cn";
 import { renderText } from "@/shared/utils/textFormat";
-import { SignalIcon } from "@heroicons/react/24/outline";
-import { ClockIcon } from "@heroicons/react/24/solid";
-import { ArrowLeft } from "lucide-react";
 
 export type PollResultsCardProps = {
   pollId: string;

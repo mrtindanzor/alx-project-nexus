@@ -2,21 +2,23 @@ import {
   dehydrate,
   HydrationBoundary,
   QueryClient,
-} from "@tanstack/react-query"
+} from "@tanstack/react-query";
 
 type HydrationProviderProps = {
-  queries: { queryKey: readonly unknown[]; data: unknown }[]
-  children: React.ReactNode
-}
+  queries: { queryKey: readonly unknown[]; data: unknown }[];
+  children: React.ReactNode;
+};
 
 export function HydrationProvider({
   queries,
   children,
 }: HydrationProviderProps) {
-  const qc = new QueryClient()
+  const qc = new QueryClient();
   queries.forEach(({ queryKey, data }) => {
-    if (data) qc.setQueryData(queryKey, data)
-  })
+    if (data) qc.setQueryData(queryKey, data);
+  });
 
-  return <HydrationBoundary state={dehydrate(qc)}>{children}</HydrationBoundary>
+  return (
+    <HydrationBoundary state={dehydrate(qc)}>{children}</HydrationBoundary>
+  );
 }

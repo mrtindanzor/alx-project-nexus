@@ -1,5 +1,8 @@
 "use client";
 
+import { ChartBarIcon, ClockIcon } from "@heroicons/react/24/solid";
+import { AnimatePresence } from "framer-motion";
+import { Share2, ThumbsUp } from "lucide-react";
 import { type PollOptionProps, useVote } from "@/features/poll";
 import {
   FramerAnimatePosition,
@@ -17,9 +20,6 @@ import { ErrorCard } from "@/shared/ui/primitive/ErrorCard";
 import Spinner from "@/shared/ui/primitive/Spinner";
 import { cn } from "@/shared/utils/cn";
 import { renderText } from "@/shared/utils/textFormat";
-import { ChartBarIcon, ClockIcon } from "@heroicons/react/24/solid";
-import { AnimatePresence } from "framer-motion";
-import { Share2, ThumbsUp } from "lucide-react";
 
 type PollVoteCardProps = {
   pollId: string;

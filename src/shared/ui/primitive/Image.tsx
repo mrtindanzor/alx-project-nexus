@@ -1,7 +1,7 @@
-import { cn } from "@/shared/utils/cn";
 import { ImageIcon } from "lucide-react";
 import NextImage from "next/image";
 import type { ComponentProps } from "react";
+import { cn } from "@/shared/utils/cn";
 
 type ImageProps = {
   url: string;

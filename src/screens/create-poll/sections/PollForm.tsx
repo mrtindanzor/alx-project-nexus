@@ -1,5 +1,7 @@
 "use client";
 
+import { Plus } from "lucide-react";
+import { useId } from "react";
 import { POLL_TYPES } from "@/features/poll/poll.contants";
 import { useCreatePoll } from "@/features/poll/poll.useCreatePoll";
 import { Dropdown } from "@/shared/features/Dropdown";
@@ -9,8 +11,6 @@ import { ErrorCard } from "@/shared/ui/primitive/ErrorCard";
 import { Input, type InputProps } from "@/shared/ui/primitive/Input";
 import { cn } from "@/shared/utils/cn";
 import { toCapitalized } from "@/shared/utils/textFormat";
-import { Plus } from "lucide-react";
-import { useId } from "react";
 
 export function PollForm() {
   const {

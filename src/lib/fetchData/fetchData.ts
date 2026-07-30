@@ -1,7 +1,7 @@
+import type { AxiosResponse } from "axios";
 import { fe } from "@/shared/utils/fe";
 import { responseUtil } from "@/shared/utils/response";
 import { tryCatch } from "@/shared/utils/tryCatch";
-import type { AxiosResponse } from "axios";
 import { axiosInstance } from "./axios";
 
 import type {

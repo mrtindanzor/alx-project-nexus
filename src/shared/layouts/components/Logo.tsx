@@ -1,7 +1,7 @@
-import { APP_NAME } from "@/shared/contants/app";
-import { cn } from "@/shared/utils/cn";
 import Link, { type LinkProps } from "next/link";
 import type { ComponentProps } from "react";
+import { APP_NAME } from "@/shared/contants/app";
+import { cn } from "@/shared/utils/cn";
 
 export function Logo({
   className,

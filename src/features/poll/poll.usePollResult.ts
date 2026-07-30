@@ -1,7 +1,7 @@
-import { type PollType, pollQuery } from "@/features/poll";
-import { formatToDaysAgo } from "@/shared/utils/textFormat";
 import { useQuery } from "@tanstack/react-query";
 import { useLayoutEffect, useMemo, useState } from "react";
+import { type PollType, pollQuery } from "@/features/poll";
+import { formatToDaysAgo } from "@/shared/utils/textFormat";
 
 type UsePollResults = {
   pollId: string;

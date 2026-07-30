@@ -1,6 +1,6 @@
+import { Chakra_Petch } from "next/font/google";
 import { BaseProvider } from "@/BaseProvider";
 import { AppFooter } from "@/shared/layouts/components/Footer";
-import { Chakra_Petch } from "next/font/google";
 import "./globals.css";
 
 const chakraPetch = Chakra_Petch({

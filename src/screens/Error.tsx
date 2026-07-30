@@ -1,6 +1,6 @@
+import { Home } from "lucide-react";
 import { LayoutWithBackButton } from "@/shared/layouts/components/LayoutWithBackButton";
 import { Button, StyledLink } from "@/shared/ui/primitive/Buttons";
-import { Home } from "lucide-react";
 
 type ErrorPageProps = {
   error: Error;
