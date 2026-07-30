@@ -1,5 +1,5 @@
 "use client";
 
-import { ErrorPage } from "@/features/Error";
+import { ErrorPage } from "@/screens/Error";
 
 export default ErrorPage;

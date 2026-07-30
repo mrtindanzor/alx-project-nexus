@@ -4,7 +4,7 @@ import type { Socket } from "socket.io-client";
 import type {
   PollsEmitterEventsType,
   PollsEventsHandlerType,
-} from "@/domain/poll";
+} from "@/features/poll";
 import { useSocket } from "@/Socket";
 
 export function usePollsSocket() {

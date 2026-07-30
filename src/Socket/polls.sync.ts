@@ -2,14 +2,7 @@
 
 import { useQueryClient } from "@tanstack/react-query";
 import { useEffect } from "react";
-import {
-  type InfinitePollProps,
-  POLL_KEY,
-  POLLS_KEY_PAGINATED,
-  type PollProps,
-  type PollResultProps,
-  pollsStateUpdater,
-} from "@/domain/poll";
+import { type PollResults, type PollType, pollQuery } from "@/features/poll";
 import { usePollsSocket } from "@/hooks/usePollsSocket";
 
 export function PollsListener() {
@@ -17,19 +10,20 @@ export function PollsListener() {
   const qc = useQueryClient();
 
   useEffect(() => {
-    const { updateInifinitePollsResults, updatePollResult } = pollsStateUpdater;
+    const updatePolls = (liveResults: PollResults) => {
+      const query = pollQuery(liveResults.pollId);
 
-    const updatePolls = (liveResults: PollResultProps) => {
-      qc.setQueryData<InfinitePollProps>(POLLS_KEY_PAGINATED, (cache) => {
+      qc.setQueryData<PollType>(query.queryKey, (cache) => {
         if (!cache) return cache;
 
-        return { ...updateInifinitePollsResults(cache, liveResults) };
-      });
-
-      qc.setQueryData<PollProps>([...POLL_KEY, liveResults.pollId], (cache) => {
-        if (!cache) return cache;
-
-        return { ...updatePollResult(cache, liveResults) };
+        return {
+          ...cache,
+          options: cache.options.map(({ id, ...option }) => ({
+            ...option,
+            id,
+            total: liveResults.results[id] ?? option.total,
+          })),
+        };
       });
     };
 

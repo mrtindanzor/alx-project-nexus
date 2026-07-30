@@ -1,7 +1,7 @@
 import { Chakra_Petch } from "next/font/google";
-import "./globals.css";
 import { BaseProvider } from "@/BaseProvider";
-import { AppFooter } from "@/shared/layouts/components/server/Footer";
+import { AppFooter } from "@/shared/layouts/components/Footer";
+import "./globals.css";
 
 const chakraPetch = Chakra_Petch({
   weight: ["300", "400", "500", "600", "700"],
