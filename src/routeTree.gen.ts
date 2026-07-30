@@ -8,97 +8,97 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from "./routes/__root";
-import { Route as CreateRouteImport } from "./routes/create";
-import { Route as IndexRouteImport } from "./routes/index";
-import { Route as PollPollIdRouteImport } from "./routes/poll.$pollId";
-import { Route as VotePollIdRouteImport } from "./routes/vote.$pollId";
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as IndexRouteImport } from './routes/index'
+import { Route as CreateRouteImport } from './routes/create'
+import { Route as PollPollIdRouteImport } from './routes/poll.$pollId'
+import { Route as VotePollIdRouteImport } from './routes/vote.$pollId'
 
 const IndexRoute = IndexRouteImport.update({
-  id: "/",
-  path: "/",
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const CreateRoute = CreateRouteImport.update({
-  id: "/create",
-  path: "/create",
+  id: '/create',
+  path: '/create',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const PollPollIdRoute = PollPollIdRouteImport.update({
-  id: "/poll/$pollId",
-  path: "/poll/$pollId",
+  id: '/poll/$pollId',
+  path: '/poll/$pollId',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const VotePollIdRoute = VotePollIdRouteImport.update({
-  id: "/vote/$pollId",
-  path: "/vote/$pollId",
+  id: '/vote/$pollId',
+  path: '/vote/$pollId',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 
 export interface FileRoutesByFullPath {
-  "/": typeof IndexRoute;
-  "/create": typeof CreateRoute;
-  "/poll/$pollId": typeof PollPollIdRoute;
-  "/vote/$pollId": typeof VotePollIdRoute;
+  '/': typeof IndexRoute
+  '/create': typeof CreateRoute
+  '/poll/$pollId': typeof PollPollIdRoute
+  '/vote/$pollId': typeof VotePollIdRoute
 }
 export interface FileRoutesByTo {
-  "/": typeof IndexRoute;
-  "/create": typeof CreateRoute;
-  "/poll/$pollId": typeof PollPollIdRoute;
-  "/vote/$pollId": typeof VotePollIdRoute;
+  '/': typeof IndexRoute
+  '/create': typeof CreateRoute
+  '/poll/$pollId': typeof PollPollIdRoute
+  '/vote/$pollId': typeof VotePollIdRoute
 }
 export interface FileRoutesById {
-  __root__: typeof rootRouteImport;
-  "/": typeof IndexRoute;
-  "/create": typeof CreateRoute;
-  "/poll/$pollId": typeof PollPollIdRoute;
-  "/vote/$pollId": typeof VotePollIdRoute;
+  __root__: typeof rootRouteImport
+  '/': typeof IndexRoute
+  '/create': typeof CreateRoute
+  '/poll/$pollId': typeof PollPollIdRoute
+  '/vote/$pollId': typeof VotePollIdRoute
 }
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: "/" | "/create" | "/poll/$pollId" | "/vote/$pollId";
-  fileRoutesByTo: FileRoutesByTo;
-  to: "/" | "/create" | "/poll/$pollId" | "/vote/$pollId";
-  id: "__root__" | "/" | "/create" | "/poll/$pollId" | "/vote/$pollId";
-  fileRoutesById: FileRoutesById;
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths: '/' | '/create' | '/poll/$pollId' | '/vote/$pollId'
+  fileRoutesByTo: FileRoutesByTo
+  to: '/' | '/create' | '/poll/$pollId' | '/vote/$pollId'
+  id: '__root__' | '/' | '/create' | '/poll/$pollId' | '/vote/$pollId'
+  fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute;
-  CreateRoute: typeof CreateRoute;
-  PollPollIdRoute: typeof PollPollIdRoute;
-  VotePollIdRoute: typeof VotePollIdRoute;
+  IndexRoute: typeof IndexRoute
+  CreateRoute: typeof CreateRoute
+  PollPollIdRoute: typeof PollPollIdRoute
+  VotePollIdRoute: typeof VotePollIdRoute
 }
 
-declare module "@tanstack/react-router" {
+declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    "/": {
-      id: "/";
-      path: "/";
-      fullPath: "/";
-      preLoaderRoute: typeof IndexRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/create": {
-      id: "/create";
-      path: "/create";
-      fullPath: "/create";
-      preLoaderRoute: typeof CreateRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/poll/$pollId": {
-      id: "/poll/$pollId";
-      path: "/poll/$pollId";
-      fullPath: "/poll/$pollId";
-      preLoaderRoute: typeof PollPollIdRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/vote/$pollId": {
-      id: "/vote/$pollId";
-      path: "/vote/$pollId";
-      fullPath: "/vote/$pollId";
-      preLoaderRoute: typeof VotePollIdRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/create': {
+      id: '/create'
+      path: '/create'
+      fullPath: '/create'
+      preLoaderRoute: typeof CreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/poll/$pollId': {
+      id: '/poll/$pollId'
+      path: '/poll/$pollId'
+      fullPath: '/poll/$pollId'
+      preLoaderRoute: typeof PollPollIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vote/$pollId': {
+      id: '/vote/$pollId'
+      path: '/vote/$pollId'
+      fullPath: '/vote/$pollId'
+      preLoaderRoute: typeof VotePollIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -107,17 +107,16 @@ const rootRouteChildren: RootRouteChildren = {
   CreateRoute: CreateRoute,
   PollPollIdRoute: PollPollIdRoute,
   VotePollIdRoute: VotePollIdRoute,
-};
+}
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>();
+  ._addFileTypes<FileRouteTypes>()
 
-import type { createStart } from "@tanstack/react-start";
-import type { getRouter } from "./router.tsx";
-
-declare module "@tanstack/react-start" {
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
   interface Register {
-    ssr: true;
-    router: Awaited<ReturnType<typeof getRouter>>;
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
   }
 }
