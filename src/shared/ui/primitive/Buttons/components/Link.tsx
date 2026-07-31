@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@tanstack/react-router";
 import { cn } from "@/shared/utils/cn";
 import type { StyledLinkProps } from "../button.types";
 import { ButtonVariants } from "./Button";
@@ -14,11 +14,13 @@ export function StyledLink({
   x,
   y,
   w,
+  href,
   ...props
 }: StyledLinkProps) {
   return (
     <Link
       {...props}
+      to={href as never}
       className={cn(
         ButtonVariants({
           variant,

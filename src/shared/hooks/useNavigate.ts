@@ -1,5 +1,3 @@
-"use client";
-
 import { useLayoutEffect, useRef, useState } from "react";
 import { syncTryCatch } from "../utils/tryCatch";
 

@@ -1,6 +1,7 @@
-import Link, { type LinkProps } from "next/link";
+import { Link, type LinkProps } from "@tanstack/react-router";
 import type { ComponentProps } from "react";
 import { APP_NAME } from "@/shared/contants/app";
+import { routes } from "@/shared/routes/routes";
 import { cn } from "@/shared/utils/cn";
 
 export function Logo({
@@ -10,7 +11,7 @@ export function Logo({
   return (
     <Link
       {...props}
-      href="/"
+      href={routes.home}
       className={cn(
         "block py-2 px-2 font-bold text-accent text-[clamp(1rem,calc(0.1rem+5vw),2rem)]",
         className,

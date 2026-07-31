@@ -1,5 +1,4 @@
 import { ImageIcon } from "lucide-react";
-import NextImage from "next/image";
 import type { ComponentProps } from "react";
 import { cn } from "@/shared/utils/cn";
 
@@ -29,10 +28,10 @@ export function Image({
       )}
 
       {url && (
-        <NextImage
+        <img
           alt={title}
           sizes="100%"
-          fill
+          loading="lazy"
           src={url}
           className="object-contain"
         />

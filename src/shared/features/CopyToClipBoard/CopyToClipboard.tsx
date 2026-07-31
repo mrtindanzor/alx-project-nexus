@@ -1,5 +1,3 @@
-"use client";
-
 import { CheckSquare, Copy } from "lucide-react";
 import { Button } from "@/shared/ui/primitive/Buttons";
 import { cn } from "@/shared/utils/cn";

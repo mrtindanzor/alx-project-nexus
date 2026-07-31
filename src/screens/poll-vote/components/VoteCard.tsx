@@ -1,5 +1,3 @@
-"use client";
-
 import { ChartBarIcon, ClockIcon } from "@heroicons/react/24/solid";
 import { AnimatePresence } from "framer-motion";
 import { Share2, ThumbsUp } from "lucide-react";

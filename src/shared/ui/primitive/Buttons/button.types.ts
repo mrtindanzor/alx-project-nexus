@@ -1,4 +1,3 @@
-import type { LinkProps } from "next/link";
 import type { ComponentProps } from "react";
 import type { ExtractVariantsTypes } from "@/shared/types/lib/ExtractVariants";
 import type { ButtonVariants } from "./components/Button";
@@ -12,9 +11,7 @@ export type BackButtonProps = ButtonProps & {
 
 export type PillProps = ButtonVariantTypes & ComponentProps<"span">;
 
-export type StyledLinkProps = ButtonVariantTypes &
-  LinkProps &
-  ComponentProps<"a">;
+export type StyledLinkProps = ButtonVariantTypes & ComponentProps<"a">;
 
 export type ArrowBackButtonProps = BackButtonProps & {
   wrapperClassName?: string;

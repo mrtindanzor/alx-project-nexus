@@ -1,5 +1,3 @@
-"use client";
-
 import { AnimatePresence } from "framer-motion";
 import { ChevronsUpDown } from "lucide-react";
 import { createContext } from "react";

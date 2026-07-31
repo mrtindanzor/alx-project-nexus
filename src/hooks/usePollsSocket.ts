@@ -1,4 +1,3 @@
-"use client";
 import { useMemo } from "react";
 import type { Socket } from "socket.io-client";
 import type {

@@ -20,6 +20,6 @@ export type CreatePollDTO = Pick<PollType, "title" | "type"> & {
 
 export type PollResults = Pick<PollType, "options" | "title"> & {
   pollId: string;
-  results: Record<string, number>;
+  options: Record<string, number>;
   type: "multiple" | "single";
 };

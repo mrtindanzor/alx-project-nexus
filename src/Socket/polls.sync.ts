@@ -1,5 +1,3 @@
-"use client";
-
 import { useQueryClient } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { type PollResults, type PollType, pollQuery } from "@/features/poll";
@@ -21,7 +19,7 @@ export function PollsListener() {
           options: cache.options.map(({ id, ...option }) => ({
             ...option,
             id,
-            total: liveResults.results[id] ?? option.total,
+            total: liveResults.options[id] ?? option.total,
           })),
         };
       });
