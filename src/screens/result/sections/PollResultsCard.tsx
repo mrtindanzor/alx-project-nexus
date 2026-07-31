@@ -1,5 +1,3 @@
-"use client";
-
 import { SignalIcon } from "@heroicons/react/24/outline";
 import { ClockIcon } from "@heroicons/react/24/solid";
 import { ArrowLeft } from "lucide-react";

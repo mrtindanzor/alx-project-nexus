@@ -18,8 +18,14 @@ export function getEnv(props: {
   isStatic?: boolean;
 }): string | undefined;
 
-export function getEnv({ name, required, description = "" }: GetEnvProps) {
-  const value = process.env[name.trim()];
+export function getEnv({
+  name,
+  required,
+  description = "",
+  isStatic = true,
+}: GetEnvProps) {
+  let value = process.env[name.trim()];
+  if (isStatic) value = import.meta.env[name.trim()];
 
   if (required !== false && !value)
     throw Error(

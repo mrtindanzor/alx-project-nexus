@@ -1,5 +1,3 @@
-"use client";
-
 import { APP_NAME, BUSINESS_NAME } from "@/shared/contants/app";
 
 export function AppFooter() {

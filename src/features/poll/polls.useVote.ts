@@ -1,5 +1,3 @@
-"use client";
-
 import { useQuery } from "@tanstack/react-query";
 import { useCallback, useLayoutEffect, useState } from "react";
 import { type PollType, pollQuery } from "@/features/poll";

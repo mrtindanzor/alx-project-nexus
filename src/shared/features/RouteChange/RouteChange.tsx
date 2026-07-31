@@ -1,5 +1,3 @@
-"use client";
-
 import { createContext, type PropsWithChildren, Suspense, useRef } from "react";
 import { useRouteChangeListener } from "./useRouteChange.hooks";
 

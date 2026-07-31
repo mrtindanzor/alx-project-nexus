@@ -1,5 +1,3 @@
-"use client";
-
 import { Plus } from "lucide-react";
 import { useId } from "react";
 import { POLL_TYPES } from "@/features/poll/poll.contants";

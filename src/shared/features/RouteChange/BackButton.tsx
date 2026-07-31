@@ -1,5 +1,3 @@
-"use client";
-
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { Button } from "@/shared/ui/primitive/Buttons";
 import { cn } from "@/shared/utils/cn";

@@ -1,5 +1,3 @@
-"use client";
-
 import { useNavigate } from "../hooks/useNavigate";
 import { renderText } from "../utils/textFormat";
 import { CopyToClipboard } from "./CopyToClipBoard";

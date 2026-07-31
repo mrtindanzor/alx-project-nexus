@@ -1,5 +1,3 @@
-"use client";
-
 import { useCallback, useState } from "react";
 import { type CreatePollDTO, pollService } from "@/features/poll";
 import { useResponse } from "@/shared/hooks/useResponse";
