@@ -1,5 +1,6 @@
 import { ChartPie } from "lucide-react";
 import { FramerAnimatePosition } from "@/shared/features/Framer";
+import { routes } from "@/shared/routes/routes";
 import {
   StyledLink,
   type StyledLinkProps,
@@ -47,7 +48,7 @@ export function WelcomeBanner() {
         <BannerButtons
           variant="sky"
           hover="light"
-          href="/new-poll"
+          href={routes.create}
           direction="-30%"
         >
           <ChartPie />
