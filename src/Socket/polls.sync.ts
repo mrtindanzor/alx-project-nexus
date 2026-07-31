@@ -19,7 +19,7 @@ export function PollsListener() {
           options: cache.options.map(({ id, ...option }) => ({
             ...option,
             id,
-            total: liveResults.results[id] ?? option.total,
+            total: liveResults.options[id] ?? option.total,
           })),
         };
       });
